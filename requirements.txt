@@ -1,6 +1,6 @@
 streamlit
 datetime
-yfinance
+yfinance==0.2.28
 prophet==0.7.1
 plotly==5.1.0
 httpstan==4.4.2
