@@ -1,69 +1,72 @@
-def get_data():
-    path = 'stock.csv'
-    return pd.read_csv('/content/stock.csv', low_memory=False)
+import streamlit as st                 #importing the packages 
+from datetime import date 
+import yfinance as yf
 
-df = get_data()
-df = df.drop_duplicates(subset="Name", keep="first")
+from fbprophet import Prophet 
+from fbprophet.plot import plot_plotly
+from plotly import graph_objs as go
 
-START = "2015-01-01"
-TODAY = date.today().strftime("%Y-%m-%d")
 
-st.title("Stock Prediction")
-st.write("###")
+START = "2015-01-01"    # fixing the starting date      data frequencies !(From START to TODAY)
 
-stocks = df['Name']
-# stocks = ("AAPL", "NFLX", "GOOG", "MSFT", "INFY", "RPOWER.NS", "BAJFINANCE.NS", "YESBANK.NS", "RCOM.NS", "EXIDEIND.NS", "TATACHEM.NS", "TATAMOTORS.NS", "RUCHI.NS")
-selected_stock = st.selectbox("Select dataset and years for prediction", stocks)
+TODAY = date.today().strftime("%Y-%m-%d")  #Until today 
 
-index = df[df["Name"]==selected_stock].index.values[0]
-symbol = df["Symbol"][index]
 
-n_years = st.slider("", 1, 5)
+st.title('Stock Prediction:')   #Title of our web-app
+st.write('(Tesla , Google , Microsoft, Facebook , Nvidia , Paypal , Adobe , Netflix)')
+
+stocks = ('TSLA','GOOG','MSFT','FB','AAPL','NVDA','PYPL','ADBE','NFLX')  #Stocks we are using to predict
+
+selected_stocks = st.selectbox('Select Dataset for prediction',stocks)   
+
+n_years = st.slider("Years of prediction :",1,5)   #Number of years to do the prediction 
 period = n_years * 365
 
+@st.cache
 
-def load_data(ticker):
-    data = yf.download(ticker, START, TODAY)
-    data.reset_index(inplace=True)
+def load_data(ticker):                               # A function to download the data of the selected stocks
+    data = yf.download(ticker,START , TODAY)
+    data.reset_index(inplace = True)
     return data
 
-data_load_state = st.text("Load data ...")
-data = load_data(symbol)
-data_load_state.text("Loading data ... Done!")
+data_load_state = st.text('Loading Data...')         #Text to be displayed before and after downloading of the data 
+data = load_data(selected_stocks)
+data_load_state.text('Done !!')
 
-st.write("###")
-
-st.subheader("Raw data")
+st.subheader('The Data:')
 st.write(data.tail())
 
-def plot_raw_data():
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=data['Date'], y=data['Open'], name='stock_open'))
-    fig.add_trace(go.Scatter(x=data['Date'], y=data['Close'], name='stock_close'))
-    fig.layout.update(title_text = "Time Series Data", xaxis_rangeslider_visible = True)
+def plot_data():
+    fig= go.Figure()
+    fig.add_trace(go.scatter(x = data['Date'], y =data['Open'], name = 'Stock_Open'))         # Getting and tabulating the data 
+    fig.add_trace(go.scatter(x = data['Date'], y =data['Close'], name = 'Stock_Close'))       # of stock open and close 
+    fig.layout.update(title_text ="Time Series data with ranger slider",xaxis_rangeslider_visible = True)
     st.plotly_chart(fig)
 
-plot_raw_data()
+    plot_data
 
-#Forecasting
-df_train = data[['Date', 'Close']]
-df_train = df_train.rename(columns={"Date": "ds", "Close": "y"})
+# P R E D I C T I O N -----> with Facebook Prophet
 
-m = Prophet()
-m.fit(df_train)
+data_frame_train = data [['Date','Close']]
+data_frame_train = data_frame_train.rename(columns={"Date":"ds","Close":"y"})
 
-future = m.make_future_dataframe(periods=period)
-forecast = m.predict(future)
+p = Prophet()
+p.fit(data_frame_train)
 
-st.write("***")
-st.write("###")
+future = p.make_future_dataframe(periods=period)
+forecast = p.predict(future)
 
-st.subheader("Forecast data")
+# Visualizing the output ....
+
+st.subheader('Predicted output:')
 st.write(forecast.tail())
 
-fig1 = plot_plotly(m, forecast)
+st.subheader(f'The Forecast for {n_years} year :')
+fig1 = plot_plotly(p, forecast)
 st.plotly_chart(fig1)
 
-st.subheader("Forecast Components")
-fig2 = m.plot_components(forecast)
+
+
+st.write("Forecast components")
+fig2 = p.plot_components(forecast)
 st.write(fig2)
