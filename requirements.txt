@@ -1,9 +1,9 @@
 streamlit
 datetime
+pandas
 yfinance
 prophet
 plotly
 httpstan
 pystan
 numpy
-Cython
