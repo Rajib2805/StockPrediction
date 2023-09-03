@@ -2,9 +2,9 @@ import streamlit as st                 #importing the packages
 from datetime import date 
 import yahoofinance as yf
 
-#from prophet import Prophet 
-#from prophet.plot import plot_plotly
-#from plotly import graph_objs as go
+from prophet import Prophet 
+from prophet.plot import plot_plotly
+from plotly import graph_objs as go
 
 
 START = "2015-01-01"    # fixing the starting date      data frequencies !(From START to TODAY)
