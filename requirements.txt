@@ -1,9 +1,7 @@
 streamlit
 datetime
 pandas
-yfinance>==0.1.63
+yfinance
 prophet
 plotly
-httpstan
-pystan
 numpy
