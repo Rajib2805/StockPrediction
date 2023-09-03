@@ -1,4 +1,3 @@
-!pip install yfinance
 import streamlit as st                 #importing the packages 
 from datetime import date 
 import yfinance as yf
