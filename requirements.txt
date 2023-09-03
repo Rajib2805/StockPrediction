@@ -1,5 +1,6 @@
 prophet
 plotly
+yfinance
 streamlit
 datetime
 pandas
