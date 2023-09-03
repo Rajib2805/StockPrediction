@@ -1,6 +1,6 @@
+import yfinance as yf
 import streamlit as st                 #importing the packages 
 from datetime import date 
-import yfinance as yf
 
 from prophet import Prophet 
 from prophet.plot import plot_plotly
