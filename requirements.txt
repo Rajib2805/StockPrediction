@@ -1,7 +1,7 @@
 streamlit==0.82.0
 datetime
 yfinance
-fbprophet==0.7.1
+prophet==0.7.1
 plotly==5.1.0
 httpstan==4.4.2
 pystan==2.19.1.1
