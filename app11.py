@@ -4,7 +4,7 @@ from datetime import date
 
 #from prophet import Prophet 
 #from prophet.plot import plot_plotly
-from plotly import graph_objs as go
+#from plotly import graph_objs as go
 
 
 START = "2015-01-01"    # fixing the starting date      data frequencies !(From START to TODAY)
