@@ -1,7 +1,0 @@
-streamlit
-yfinance
-datetime
-pandas
-prophet
-plotly
-numpy
