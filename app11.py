@@ -40,7 +40,8 @@ def main():
     elif option == 'Recent Data':
         dataframe()
     elif option == 'Visualize by yourself':
-        pyg.walk (data, dark= 'light')
+        pyg_html= pyg.walk (data, dark= 'light', return_html=True)
+        components.html(pyg_html, height=1000, scrolling=True)
     else:
         predict()
 
