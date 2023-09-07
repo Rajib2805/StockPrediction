@@ -152,7 +152,7 @@ def streamlit_tableau():
     #st.set_page_config(page_title="Use Pygwalker In Streamlit", layout="wide")
     #st.title("Use Pygwalker In Streamlit")
     pyg_html= pyg.walk (data_added_columns, dark= 'light', return_html=True) # dark= 'light'
-    components.html(pyg_html, height= 1000, scrolling=True)
+    components.html(pyg_html, height= 1000, width= 500, scrolling=True)
     
 
 def predict():
