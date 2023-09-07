@@ -40,11 +40,7 @@ def main():
     elif option == 'Recent Data':
         dataframe()
     elif option == 'Visualize by yourself':
-        # Adjust the width of the Streamlit page
-        #st.set_page_config(page_title="Use Pygwalker In Streamlit", layout="wide")
-        st.title("Use Pygwalker In Streamlit")
-        pyg_html= pyg.walk (df, return_html=True) # dark= 'light'
-        components.html(pyg_html, scrolling=True)
+        streamlit_tableau()
     else:
         predict()
 
@@ -173,6 +169,14 @@ def predict():
             model_engine(engine, num)
 
 
+def streamlit_tableau():
+    # Adjust the width of the Streamlit page
+    #st.set_page_config(page_title="Use Pygwalker In Streamlit", layout="wide")
+    st.title("Use Pygwalker In Streamlit")
+    pyg_html= pyg.walk (df, dark= 'light', return_html=True) # dark= 'light'
+    components.html(pyg_html, scrolling=True)
+    
+        
 def model_engine(model, num):
     # getting only the closing price
     df = data[['Close']]
