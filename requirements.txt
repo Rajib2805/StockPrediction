@@ -1,7 +1,10 @@
 prophet
 plotly
 streamlit
+streamlit_option_menu
 datetime
 pandas
 numpy
 yfinance
+matplotlib
+numpy
