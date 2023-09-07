@@ -25,7 +25,7 @@ import plotly.express as px
 st.title('Stock Market Dashboard')
 
 #st.Image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
-img = image.open("pexels-leeloo-thefirst-7247399.jpg")
+img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 st.image(img)
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
