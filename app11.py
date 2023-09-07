@@ -17,6 +17,7 @@ from sklearn.metrics import r2_score, mean_absolute_error
 from xgboost import XGBRegressor
 #from PIL import Image
 import plotly.express as px
+import streamlit.components.v1 as components
 
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
