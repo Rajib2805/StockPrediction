@@ -15,7 +15,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.metrics import r2_score, mean_absolute_error
 from xgboost import XGBRegressor
-#from PIL import Image
+from PIL import Image
 import plotly.express as px
 import streamlit.components.v1 as components
 
@@ -25,11 +25,11 @@ import streamlit.components.v1 as components
 
 st.title('Stock Market Dashboard')
 
-'''
+
 #st.Image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
 img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 st.image(img)
-'''
+
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
 st.sidebar.info("Created and designed by Rajib Kumar Tah")
