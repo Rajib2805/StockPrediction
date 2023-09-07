@@ -42,10 +42,7 @@ def main():
     elif option == 'Visualize by yourself':
         # Adjust the width of the Streamlit page
         st.set_page_config(page_title="Use Pygwalker In Streamlit", layout="wide")
- 
-# Add Title
-st.title("Use Pygwalker In Streamlit")
- 
+        st.title("Use Pygwalker In Streamlit")
         pyg_html= pyg.walk (data, dark= 'light', return_html=True)
         components.html(pyg_html, height=1000, scrolling=True)
     else:
