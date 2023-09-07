@@ -11,3 +11,4 @@ numpy
 ta
 pygwalker
 scikit-learn
+xgboost
