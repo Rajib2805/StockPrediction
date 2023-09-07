@@ -24,7 +24,7 @@ import plotly.express as px
 
 st.title('Stock Market Dashboard')
 
-#st.image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
+#st.Image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
 img = image.open("pexels-leeloo-thefirst-7247399.jpg")
 st.image(img)
 
