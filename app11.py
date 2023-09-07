@@ -15,7 +15,7 @@ from xgboost import XGBRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.metrics import r2_score, mean_absolute_error
-from pillow import Image
+from PIL import Image
 import plotly.express as px
 
 ############################################################################################
@@ -25,7 +25,7 @@ import plotly.express as px
 st.title('Stock Market Dashboard')
 
 #st.image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
-img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
+img = image.open("pexels-leeloo-thefirst-7247399.jpg")
 st.image(img)
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
