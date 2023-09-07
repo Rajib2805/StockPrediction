@@ -12,3 +12,4 @@ ta
 pygwalker
 scikit-learn
 xgboost
+streamlit.components.v1
