@@ -11,10 +11,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsRegressor
-from xgboost import XGBRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.metrics import r2_score, mean_absolute_error
+from xgboost import XGBRegressor
 from PIL import Image
 import plotly.express as px
 
