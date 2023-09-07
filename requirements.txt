@@ -12,4 +12,4 @@ ta
 pygwalker
 scikit-learn
 xgboost
-pillow
+PIL
