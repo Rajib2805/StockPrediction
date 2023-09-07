@@ -15,7 +15,7 @@ from xgboost import XGBRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.metrics import r2_score, mean_absolute_error
-from PIL import Image
+from Pillow import Image
 import plotly.express as px
 
 ############################################################################################
