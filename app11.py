@@ -43,7 +43,7 @@ def main():
         # Adjust the width of the Streamlit page
         #st.set_page_config(page_title="Use Pygwalker In Streamlit", layout="wide")
         st.title("Use Pygwalker In Streamlit")
-        pyg_html= pyg.walk (df, dark= 'light', return_html=True) # dark= 'light'
+        pyg_html= pyg.walk (df, return_html=True) # dark= 'light'
         components.html(pyg_html, scrolling=True)
     else:
         predict()
