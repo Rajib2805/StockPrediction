@@ -9,3 +9,5 @@ yfinance
 matplotlib
 numpy
 ta
+pygwalker
+sllearn
