@@ -1,7 +1,7 @@
-yfinance
 prophet
 plotly
 streamlit
 datetime
 pandas
 numpy
+yfinance
