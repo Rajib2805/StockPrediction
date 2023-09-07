@@ -12,4 +12,3 @@ ta
 pygwalker
 scikit-learn
 xgboost
-PIL
