@@ -10,4 +10,4 @@ matplotlib
 numpy
 ta
 pygwalker
-sklearn
+scikit-learn
