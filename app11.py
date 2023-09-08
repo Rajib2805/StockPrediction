@@ -72,7 +72,7 @@ for i in dropdown:  # for each asset selected
     #st.write(option)
 
 
-option = option.upper()
+#option = option.upper()
 today = datetime.date.today()
 duration = st.sidebar.number_input('Enter no. of days from today', value= 365)
 before = today - datetime.timedelta(days=duration)
