@@ -77,7 +77,7 @@ for i in dropdown:  # for each asset selected
         symb_list.append(val)  # append symbol to list
         
 option = symb_list #['RELIANCE.NS', 'ITC.NS','BEL.NS']
-st.writw(option)
+st.write(option)
 option = option.upper()
 today = datetime.date.today()
 duration = st.sidebar.number_input('Enter no. of days from today', value= 365)
