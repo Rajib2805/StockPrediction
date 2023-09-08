@@ -60,6 +60,7 @@ def download_data(op, start_date, end_date):
 
 dict_csv = pd.read_csv('StockStreamTickersData.csv', header=None, index_col=0).to_dict()[1]  # read csv file
 symb_list = []  # list for storing symbols
+dropdown = st.multiselect('Pick your assets', tickers)
 for i in dropdown:  # for each asset selected
     val = dict_csv.get(i)  # get symbol from csv file
     symb_list.append(val)  # append symbol to list
