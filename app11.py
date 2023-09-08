@@ -75,8 +75,7 @@ symb_list = []  # list for storing symbols
 for i in dropdown:  # for each asset selected
         val = dict_csv.get(i)  # get symbol from csv file
         symb_list.append(val)  # append symbol to list
-        
-option = symb_list #['RELIANCE.NS', 'ITC.NS','BEL.NS']
+        option = symb_list #['RELIANCE.NS', 'ITC.NS','BEL.NS']
 st.write(option)
 option = option.upper()
 today = datetime.date.today()
