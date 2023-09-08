@@ -58,21 +58,9 @@ def download_data(op, start_date, end_date):
 ##################################################################################################
 # SIDEBAR MUNU ((menu no.-2)
 
-stock_df = pd.read_csv("StockStreamTickersData.csv")
-tickers = stock_df["Company Name"]
-dropdown = st.sidebar.multiselect('Pick your assets', tickers)
-dict_csv = pd.read_csv('StockStreamTickersData.csv', header=None, index_col=0).to_dict()[1]  # read csv file
-symb_list = []  # list for storing symbols
-for i in dropdown:  # for each asset selected
-    tickers = stock_df["Company Name"]
-    val = dict_csv.get(i)  # get symbol from csv file
-    symb_list.append(val)  # append symbol to list
-    option= symb_list
-    #option = st.sidebar.selectbox('Select the stock', ['RELIANCE.NS', 'ITC.NS','BEL.NS']) # 
-    #st.write(option)
+option = st.sidebar.selectbox('Select the stock',['RELIANCE.NS', 'ITC.NS','BEL.NS'])
 
-
-#option = option.upper()
+option = option.upper()
 today = datetime.date.today()
 duration = st.sidebar.number_input('Enter no. of days from today', value= 365)
 before = today - datetime.timedelta(days=duration)
