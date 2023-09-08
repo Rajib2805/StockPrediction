@@ -58,7 +58,12 @@ def download_data(op, start_date, end_date):
 ##################################################################################################
 # SIDEBAR MUNU ((menu no.-2)
 
-option = st.sidebar.selectbox('Select the stock',['RELIANCE.NS', 'ITC.NS','BEL.NS'])
+dict_csv = pd.read_csv('StockStreamTickersData.csv', header=None, index_col=0).to_dict()[1]  # read csv file
+    symb_list = []  # list for storing symbols
+    for i in dropdown:  # for each asset selected
+        val = dict_csv.get(i)  # get symbol from csv file
+        symb_list.append(val)  # append symbol to list
+option = st.sidebar.selectbox('Select the stock', symb_list) # ['RELIANCE.NS', 'ITC.NS','BEL.NS']
 
 option = option.upper()
 today = datetime.date.today()
