@@ -60,7 +60,7 @@ def download_data(op, start_date, end_date):
 
 stock_df = pd.read_csv("StockStreamTickersData.csv")
 tickers = stock_df["Company Name"]
-dropdown = st.multiselect('Pick your assets', tickers)
+dropdown = st.sidebar.multiselect('Pick your assets', tickers)
 dict_csv = pd.read_csv('StockStreamTickersData.csv', header=None, index_col=0).to_dict()[1]  # read csv file
 symb_list = []  # list for storing symbols
 for i in dropdown:  # for each asset selected
