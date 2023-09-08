@@ -67,7 +67,8 @@ for i in dropdown:  # for each asset selected
     tickers = stock_df["Company Name"]
     val = dict_csv.get(i)  # get symbol from csv file
     symb_list.append(val)  # append symbol to list
-option = st.sidebar.selectbox('Select the stock', ['RELIANCE.NS', 'ITC.NS','BEL.NS']) # 
+    option= symb_list
+#option = st.sidebar.selectbox('Select the stock', ['RELIANCE.NS', 'ITC.NS','BEL.NS']) # 
 #st.write(option)
 
 
