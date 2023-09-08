@@ -18,7 +18,6 @@ from xgboost import XGBRegressor
 from PIL import Image
 import plotly.express as px
 import streamlit.components.v1 as components
-import time
 
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
@@ -58,25 +57,16 @@ def download_data(op, start_date, end_date):
 
 ##################################################################################################
 # SIDEBAR MUNU ((menu no.-2)
-# read csv file
 stock_df = pd.read_csv("StockStreamTickersData.csv")
-
-# Stock Performance Comparison Section Starts Here
 tickers = stock_df["Company Name"]
-# dropdown for selecting assets
-dropdown = st.multiselect('Pick your assets', tickers)
-
-with st.spinner('Loading...'):  # spinner while loading
-        time.sleep(2)
-        # st.success('Loaded')
-
 dict_csv = pd.read_csv('StockStreamTickersData.csv', header=None, index_col=0).to_dict()[1]  # read csv file
 symb_list = []  # list for storing symbols
-for i in dropdown:  # for each asset selected
+for i in tickers:  # for each asset selected
         val = dict_csv.get(i)  # get symbol from csv file
         symb_list.append(val)  # append symbol to list
-        option = symb_list #['RELIANCE.NS', 'ITC.NS','BEL.NS']
-st.write(option)
+
+option = st.sidebar.selectbox('Select the stock', symb_list) #['RELIANCE.NS', 'ITC.NS','BEL.NS']
+
 option = option.upper()
 today = datetime.date.today()
 duration = st.sidebar.number_input('Enter no. of days from today', value= 365)
