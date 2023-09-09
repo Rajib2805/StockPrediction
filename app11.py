@@ -33,7 +33,9 @@ st.image(img)
 
 #Lottie file for streamlit animation
 with st.echo():
-    st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+    with st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json"):
+    time.sleep(5)
+    #st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
 st.sidebar.info("Created and designed by Rajib Kumar Tah")
