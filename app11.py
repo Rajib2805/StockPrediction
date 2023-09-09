@@ -220,7 +220,7 @@ def model_engine(model, num):
         day += 1
 
 #Form submit template
-st.header('Get in touch with me!')    
+st.header(':mailbox: Get in touch with me!')    
 contact_form= '''
 <form action="https://formsubmit.co/your@email.com" method="POST">
      <input type="text" name="name" required>
