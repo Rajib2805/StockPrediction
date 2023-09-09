@@ -219,6 +219,16 @@ def model_engine(model, num):
         st.text(f'Day {day}: {i}')
         day += 1
 
+#Form submit template
+st.header('Get in touch with me!')    
+contact_form= ---
+<form action="https://formsubmit.co/your@email.com" method="POST">
+     <input type="text" name="name" required>
+     <input type="email" name="email" required>
+     <button type="submit">Send</button>
+</form>
+---
+st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
 
 if __name__ == '__main__':
     main()
