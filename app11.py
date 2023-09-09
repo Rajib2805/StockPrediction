@@ -18,6 +18,7 @@ from xgboost import XGBRegressor
 from PIL import Image
 import plotly.express as px
 import streamlit.components.v1 as components
+from streamlit_lottie import st_lottie
 
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
@@ -30,6 +31,9 @@ st.title('Stock Market Dashboard')
 img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 st.image(img)
 
+#Lottie file for streamlit animation
+with st.echo():
+    st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
 st.sidebar.info("Created and designed by Rajib Kumar Tah")
