@@ -19,7 +19,6 @@ from PIL import Image
 import plotly.express as px
 import streamlit.components.v1 as components
 from streamlit_lottie import st_lottie
-import time
 
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
