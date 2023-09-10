@@ -133,11 +133,7 @@ def comparison():
 
     if len(dropdown) > 0:  # if user selects atleast one asset
         df = relativeret(download_data(symb_list, start_date, end_date))['Adj Close']  # download data from yfinance
-        #df = relativeret(yf.download(symb_list, start, end))['Adj Close']  # download data from yfinance
-        st.write(df)
-        # download data from yfinance
         raw_df = relativeret(download_data(symb_list, start_date, end_date))
-        #raw_df = relativeret(yf.download(symb_list, start, end))
         raw_df.reset_index(inplace=True)  # reset index
 
         closingPrice = download_data(symb_list, start_date, end_date)['Adj Close']  # download data from yfinance
