@@ -13,6 +13,5 @@ pygwalker
 scikit-learn
 xgboost
 streamlit_lottie
-webbrowser
 sqlite3
 user
