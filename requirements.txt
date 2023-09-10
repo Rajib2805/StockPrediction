@@ -13,5 +13,3 @@ pygwalker
 scikit-learn
 xgboost
 streamlit_lottie
-sqlite3
-user
