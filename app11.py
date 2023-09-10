@@ -131,13 +131,13 @@ def comparison():
         return cumret  # return cumulative return
 
     if len(dropdown) > 0:  # if user selects atleast one asset
-        df = relativeret(yf.download(op, start, end))[
+        df = relativeret(yf.download(symb_list, start, end))[
             'Adj Close']  # download data from yfinance
         # download data from yfinance
-        raw_df = relativeret(yf.download(op, start, end))
+        raw_df = relativeret(yf.download(symb_list, start, end))
         raw_df.reset_index(inplace=True)  # reset index
 
-        closingPrice = yf.download(op, start, end)[
+        closingPrice = yf.download(symb_list, start, end)[
             'Adj Close']  # download data from yfinance
         volume = yf.download(symb_list, start, end)['Volume']
         
