@@ -13,3 +13,4 @@ pygwalker
 scikit-learn
 xgboost
 streamlit_lottie
+time
