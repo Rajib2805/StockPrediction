@@ -14,5 +14,5 @@ scikit-learn
 xgboost
 streamlit_lottie
 webbrowser
-sqlite
+sqlite3
 user
