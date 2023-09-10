@@ -294,8 +294,34 @@ def predict():
             engine = KNeighborsRegressor()
             model_engine(engine, int(num))
         elif model == 'Prophet':
-            engine = Prophet()
-            model_engine(engine, int(num))
+            #engine = Prophet()
+            #model_engine(engine, int(num))
+            data_frame_train = data [['Date','Close']]
+            data_frame_train = data_frame_train.rename(columns={"Date":"ds","Close":"y"})
+
+            p = Prophet()
+            p.fit(data_frame_train)
+
+            future = p.make_future_dataframe(periods=period)
+            forecast = p.predict(future)
+
+            # Visualizing the output ....
+
+            st.subheader('Predicted output:')
+            st.write(forecast.tail())
+
+            st.subheader(f'The Forecast for {n_years} year :')
+            fig1 = plot_plotly(p, forecast)
+            st.plotly_chart(fig1)
+
+
+
+            st.write("Forecast components")
+            fig2 = p.plot_components(forecast)
+            st.write(fig2)
+
+
+
         else:
             engine = XGBRegressor()
             model_engine(engine, int(num))
