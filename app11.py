@@ -124,7 +124,7 @@ def comparison():
     for i in dropdown:  # for each asset selected
         val = dict_csv.get(i)  # get symbol from csv file
         symb_list.append(val)  # append symbol to list
-    #st.write(symb_list)
+    
     def relativeret(df):  # function for calculating relative return
         rel = df.pct_change()  # calculate relative return
         cumret = (1+rel).cumprod() - 1  # calculate cumulative return
@@ -132,11 +132,12 @@ def comparison():
         return cumret  # return cumulative return
 
     if len(dropdown) > 0:  # if user selects atleast one asset
-        df = relativeret(download_data(symb_list, start_date, end_date))
+        df = relativeret(download_data(symb_list, start_date, end_date))['Adj Close']  # download data from yfinance
         #df = relativeret(yf.download(symb_list, start, end))['Adj Close']  # download data from yfinance
         st.write(df)
         # download data from yfinance
-        raw_df = relativeret(yf.download(symb_list, start, end))
+        raw_df = relativeret(download_data(symb_list, start_date, end_date))
+        #raw_df = relativeret(yf.download(symb_list, start, end))
         raw_df.reset_index(inplace=True)  # reset index
 
         closingPrice = yf.download(symb_list, start, end)['Adj Close']  # download data from yfinance
