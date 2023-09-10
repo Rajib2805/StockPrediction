@@ -315,7 +315,7 @@ def model_engine(model, num):
 #Form submit template
 st.header(':mailbox: Get in touch with me!')    
 contact_form= """
-<form action="https://formsubmit.co/rajibtah@gmail.com" method="POST"/>
+<form action="https://formsubmit.co/215ee6bc6047c5e68f74f44b58a0f092" method="POST"/>
      <input type="text" name="name" required>
      <input type="email" name="email" required>
      <button type="submit">Send</button>
