@@ -77,7 +77,7 @@ option = st.sidebar.selectbox('Select the stock', symb_list) #['RELIANCE.NS', 'I
 option = option.upper()
 today = datetime.date.today()
 #duration = st.sidebar.number_input('Enter no. of days from today', value= 365)
-duration = st.slider('How old are you?', 0, 1000, 365)
+duration = st.sidebar.slider('How old are you?', 0, 1000, 365)
 st.write("Number of days from today :", duration, 'days')
 
 before = today - datetime.timedelta(days=duration)
