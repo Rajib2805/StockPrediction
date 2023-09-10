@@ -109,6 +109,7 @@ data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sm
 
 
 def comparison():
+    stock_df = pd.read_csv("StockStreamTickersData.csv")
     st.subheader("Stocks Performance Comparison")
     tickers = stock_df["Company Name"]
     # dropdown for selecting assets
