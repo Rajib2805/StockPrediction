@@ -238,7 +238,7 @@ st.contact_form = st.markdown(contact_form, unsafe_allow_html= True)
 
 
 
-
+'''
 
 import streamlit as st 
 import webbrowser
@@ -396,7 +396,7 @@ if radio_option=="Delete Account":
     else:
         st.info('Database is Empty.', icon="ℹ️")
 
-
+'''
 
 
 if __name__ == '__main__':
