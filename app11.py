@@ -1,4 +1,4 @@
-import streamlit as st
+ter import streamlit as st
 import pandas as pd
 import yfinance as yf
 import pygwalker as pyg
@@ -77,9 +77,9 @@ option = st.sidebar.selectbox('Select the stock', symb_list) #['RELIANCE.NS', 'I
 option = option.upper()
 today = datetime.date.today()
 #duration = st.sidebar.number_input('Enter no. of days from today', value= 365) # This is manual input system
-duration = st.sidebar.slider('How old are you?', 0, 60, 6) #This is slider input system
+duration = st.sidebar.slider('Enter number of months to analyse:', 0, 60, 12) #This is slider input system
 duration = duration * 30
-st.write("Number of days from today :", duration, 'days')
+st.write("Number of months from today :", duration, 'months')
 
 before = today - datetime.timedelta(days=duration)
 
