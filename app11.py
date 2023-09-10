@@ -79,7 +79,7 @@ today = datetime.date.today()
 #duration = st.sidebar.number_input('Enter no. of days from today', value= 365) # This is manual input system
 duration = st.sidebar.slider('Enter number of months to analyse:', 0, 60, 12) #This is slider input system
 duration = duration * 30
-st.write("Number of months from today :", duration/30, 'months')
+st.write("Number of months from today :", round(duration/30,0), 'months')
 
 before = today - datetime.timedelta(days=duration)
 
