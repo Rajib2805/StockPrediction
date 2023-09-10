@@ -124,7 +124,7 @@ def comparison():
     for i in dropdown:  # for each asset selected
         val = dict_csv.get(i)  # get symbol from csv file
         symb_list.append(val)  # append symbol to list
-
+        st.write(symb_list)
     def relativeret(df):  # function for calculating relative return
         rel = df.pct_change()  # calculate relative return
         cumret = (1+rel).cumprod() - 1  # calculate cumulative return
