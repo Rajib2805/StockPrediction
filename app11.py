@@ -303,6 +303,7 @@ def model_engine(model, num):
     # training the model
     model.fit(x_train, y_train)
     preds = model.predict(x_test)
+    st.write(preds)
     st.text(f'r2_score: {r2_score(y_test, preds)} \
             \nMAE: {mean_absolute_error(y_test, preds)}')
     # predicting stock price based on the number of days
