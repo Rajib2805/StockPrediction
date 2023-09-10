@@ -140,7 +140,6 @@ def comparison():
         volume = download_data(symb_list, start_date, end_date)['Volume']
         
         st.subheader('Raw Data {}'.format(dropdown))
-        st.write(raw_df)  # display raw data
         chart = ('Line Chart', 'Area Chart', 'Bar Chart')  # chart types
         # dropdown for selecting chart type
         dropdown1 = st.selectbox('Pick your chart', chart)
