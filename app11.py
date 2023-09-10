@@ -43,7 +43,7 @@ def main():
     if option == 'Visualize':
         tech_indicators()
     elif option == 'Comparison':
-        compaarison()
+        comparison()
     elif option == 'Recent Data':
         dataframe()
     elif option == 'Visualize by yourself':
