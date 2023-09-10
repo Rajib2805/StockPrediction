@@ -163,11 +163,11 @@ def comparison():
             # display closing price of selected assets
             st.write("### Closing Price of {}".format(dropdown))
             st.area_chart(closingPrice)  # display area chart
-            '''
+            
             # display volume of selected assets
             st.write("### Volume of {}".format(dropdown))
             st.area_chart(volume)  # display area chart
-            '''
+            
         elif (dropdown1) == 'Bar Chart':  # if user selects 'Bar Chart'
             st.bar_chart(df)  # display bar chart
             # display closing price of selected assets
