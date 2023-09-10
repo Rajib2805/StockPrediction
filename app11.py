@@ -20,6 +20,9 @@ import plotly.express as px
 import streamlit.components.v1 as components
 from streamlit_lottie import st_lottie
 import time
+from prophet import Prophet 
+from prophet.plot import plot_plotly
+from plotly import graph_objs as go
 
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
