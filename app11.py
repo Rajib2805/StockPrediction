@@ -40,7 +40,7 @@ st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options 
 st.sidebar.info("Created and designed by Rajib Kumar Tah")
 
 def main():
-    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself'])
+    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
     if option == 'Visualize':
         tech_indicators()
     elif option == 'Comparison':
@@ -49,8 +49,10 @@ def main():
         dataframe()
     elif option == 'Visualize by yourself':
         streamlit_tableau()
-    else:
+    elif option == 'Predict':
         predict()
+    else:
+        about()
 
 
 
@@ -110,6 +112,21 @@ data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sm
 # A) DEFINING THE RADIO BUTTONS
 # B) WHAT ACTION TO BE DONE IF THE RADIO BUTTION IS CLICKED
 # C) THE TECHNICAL ANALYSIS CODE DRIVING THOSE ACTIONS
+
+def about():
+    st.subheader("About")
+    
+    st.markdown("""
+        <style>
+    .big-font {
+        font-size:25px !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<p class="big-font">StockStream is a web application that allows users to visualize Stock Performance Comparison, Real-Time Stock Prices and Stock Price Prediction. This application is developed using Streamlit. Streamlit is an open source app framework in Python language. It helps users to create web apps for Data Science and Machine Learning in a short time. This Project is developed by Vaishnavi Sharma and Rohit More. You can find more about the developers on their GitHub Profiles shared below.<br>Hope you are able to employ this application well and get your desired output.<br> Cheers!</p>', unsafe_allow_html=True)
+    st.subheader('Rohit More [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/rohitmore1012) ')
+    st.subheader('Vaishnavi Sharma [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/vaishnavi3131) ')
 
 
 def comparison():
