@@ -114,7 +114,7 @@ def comparison():
     tickers = stock_df["Company Name"]
     # dropdown for selecting assets
     dropdown = st.multiselect('Pick your assets', tickers)
-    st.write(dropdown)
+    
     with st.spinner('Loading...'):  # spinner while loading
         time.sleep(2)
         # st.success('Loaded')
@@ -134,6 +134,7 @@ def comparison():
     if len(dropdown) > 0:  # if user selects atleast one asset
         df = relativeret(yf.download(symb_list, start, end))[
             'Adj Close']  # download data from yfinance
+        st.write(df)
         # download data from yfinance
         raw_df = relativeret(yf.download(symb_list, start, end))
         raw_df.reset_index(inplace=True)  # reset index
