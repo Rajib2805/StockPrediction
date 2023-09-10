@@ -1,4 +1,4 @@
-ter import streamlit as st
+import streamlit as st
 import pandas as pd
 import yfinance as yf
 import pygwalker as pyg
