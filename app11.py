@@ -140,8 +140,8 @@ def comparison():
         #raw_df = relativeret(yf.download(symb_list, start, end))
         raw_df.reset_index(inplace=True)  # reset index
 
-        closingPrice = yf.download(symb_list, start, end)['Adj Close']  # download data from yfinance
-        volume = yf.download(symb_list, start, end)['Volume']
+        closingPrice = download_data(symb_list, start_date, end_date)['Adj Close']  # download data from yfinance
+        volume = download_data(symb_list, start_date, end_date)['Volume']
         
         st.subheader('Raw Data {}'.format(dropdown))
         st.write(raw_df)  # display raw data
