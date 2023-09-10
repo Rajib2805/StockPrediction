@@ -307,6 +307,7 @@ def model_engine(model, num):
             \nMAE: {mean_absolute_error(y_test, preds)}')
     # predicting stock price based on the number of days
     forecast_pred = model.predict(x_forecast)
+    forecast_pred = int(forecast_pred)
     day = 1
     for i in forecast_pred:
         st.text(f'Day {day}: {i}')
