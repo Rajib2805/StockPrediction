@@ -196,16 +196,6 @@ def comparison():
         st.write('Please select atleast one asset')  # display message
 # Stock Performance Comparison Section Ends Here
 
-
-
-
-
-
-
-
-
-
-
     
 def tech_indicators():
     st.header('Technical Indicators')
@@ -276,19 +266,19 @@ def predict():
     if st.button('Predict'):
         if model == 'LinearRegression':
             engine = LinearRegression()
-            model_engine(engine, num)
+            model_engine(engine, int(num))
         elif model == 'RandomForestRegressor':
             engine = RandomForestRegressor()
-            model_engine(engine, num)
+            model_engine(engine, int(num))
         elif model == 'ExtraTreesRegressor':
             engine = ExtraTreesRegressor()
-            model_engine(engine, num)
+            model_engine(engine, int(num))
         elif model == 'KNeighborsRegressor':
             engine = KNeighborsRegressor()
-            model_engine(engine, num)
+            model_engine(engine, int(num))
         else:
             engine = XGBRegressor()
-            model_engine(engine, num)
+            model_engine(engine, int(num))
 
 
 def model_engine(model, num):
