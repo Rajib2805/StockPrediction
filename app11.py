@@ -27,6 +27,19 @@ import pylottie
 import json
 
 
+#Form submit template
+st.header(':mailbox: Get in touch with me!')    
+contact_form= """
+<form action="https://formsubmit.co/215ee6bc6047c5e68f74f44b58a0f092" method="POST"/>
+     <input type="text" name="name" required>
+     <input type="email" name="email" required>
+     <button type="submit">Send</button>
+</form>
+"""
+st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
+
+
+
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
 # THE MAIN MENU ARE LINKED TO 
 
@@ -279,19 +292,6 @@ def streamlit_tableau():
     pyg_html= pyg.walk (data_added_columns, dark= 'light', return_html=True) # dark= 'light'
     components.html(pyg_html, width= 1000, height= 800, scrolling=True)
     
-
-
-
-#Form submit template
-st.header(':mailbox: Get in touch with me!')    
-contact_form= """
-<form action="https://formsubmit.co/215ee6bc6047c5e68f74f44b58a0f092" method="POST"/>
-     <input type="text" name="name" required>
-     <input type="email" name="email" required>
-     <button type="submit">Send</button>
-</form>
-"""
-st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
 
 
 #####################################################################
