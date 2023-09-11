@@ -41,7 +41,9 @@ st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options 
 st.sidebar.info("Created and designed by Rajib Kumar Tah")
 
 def main():
-    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself'])
+    option = st.sidebar.selectbox('Make a choice', ['About', 'Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself'])
+    if option == 'About':
+        about()
     if option == 'Visualize':
         tech_indicators()
     elif option == 'Comparison':
