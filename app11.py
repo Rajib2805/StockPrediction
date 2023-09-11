@@ -30,10 +30,11 @@ st.title('Stock Market Dashboard')
 
 #st.Image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
 img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
+img = img.resize((400,300))
 st.image(img)
 
 #Lottie file for streamlit animation
-with st.echo():
+with st.sidebar:
     st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
     
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
