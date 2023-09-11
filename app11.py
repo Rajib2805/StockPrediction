@@ -58,35 +58,6 @@ st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options 
 st.sidebar.info("Created and Designed by Rajib Kumar Tah")
 
 
-
-
-
-
-
-
-def main():
-    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
-    if option == 'Visualize':
-        tech_indicators()
-    elif option == 'Comparison':
-        comparison()
-    elif option == 'Recent Data':
-        dataframe()
-    elif option == 'Visualize by yourself':
-        streamlit_tableau()
-    elif option == 'Predict':
-        predict()
-    else:
-        about()
-
-
-#FUNCTION TO DOWNLOAD DATA with YFINANCE
-@st.cache_resource
-def download_data(op, start_date, end_date):
-    df = yf.download(op, start=start_date, end=end_date, progress=False)
-    return df
-
-
 # SIDEBAR MUNU ((menu no.-2)
 stock_df = pd.read_csv("StockStreamTickersData.csv")
 tickers = stock_df["Company Name"]
@@ -296,6 +267,28 @@ def streamlit_tableau():
 
 #####################################################################
 # ALL THE FUNCTIONS IN ONE PLACE
+def main():
+    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
+    if option == 'Visualize':
+        tech_indicators()
+    elif option == 'Comparison':
+        comparison()
+    elif option == 'Recent Data':
+        dataframe()
+    elif option == 'Visualize by yourself':
+        streamlit_tableau()
+    elif option == 'Predict':
+        predict()
+    else:
+        about()
+
+
+#FUNCTION TO DOWNLOAD DATA with YFINANCE
+@st.cache_resource
+def download_data(op, start_date, end_date):
+    df = yf.download(op, start=start_date, end=end_date, progress=False)
+    return df
+     
 
 def predict():
     model = st.radio('Choose a model', ['LinearRegression', 'RandomForestRegressor', 'ExtraTreesRegressor', 'KNeighborsRegressor', 'XGBoostRegressor', 'Prophet'])
