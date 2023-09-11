@@ -111,7 +111,6 @@ data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sm
 #####################################################################
 # ALL THE FUNCTIONS IN ONE PLACE
 
-
 def main():
     option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
     if option == 'Visualize':
