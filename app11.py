@@ -46,19 +46,13 @@ st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
 with open('https://assets5.lottiefiles.com/packages/lf20_V9t630.json', 'r') as json_file:
     lottie_data = json.load(json_file)
 
-# Set the new width and height for the Lottie animation
-new_width = 200  # Change this to your desired width
-new_height = 200  # Change this to your desired height
-
 # Update the size properties in the Lottie JSON data
 for layer in lottie_data['layers']:
     if 'w' in layer['ks']:
-        layer['ks']['w']['k'] = new_width
+        layer['ks']['w']['k'] = 200
     if 'h' in layer['ks']:
-        layer['ks']['h']['k'] = new_height
+        layer['ks']['h']['k'] = 100
 
-with open('output.json', 'w') as json_file:
-    json.dump(lottie_data, json_file, indent=2)
 
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
