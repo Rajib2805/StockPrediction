@@ -43,7 +43,7 @@ st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
 
 
 
-with open('https://assets5.lottiefiles.com/packages/lf20_V9t630.json', 'r') as json_file:
+with open(st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json"), 'r') as json_file:
     lottie_data = json.load(json_file)
 
 # Update the size properties in the Lottie JSON data
