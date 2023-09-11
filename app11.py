@@ -61,7 +61,7 @@ with st.sidebar:
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
 st.sidebar.info("Created and Designed by Rajib Kumar Tah")
 ###############################################
-# SIDEBAR MUNU ((menu no.-2)
+
 
 stock_df = pd.read_csv("StockStreamTickersData.csv")
 tickers = stock_df["Company Name"]
