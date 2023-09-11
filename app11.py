@@ -39,10 +39,24 @@ img = img.resize((400, 300))
 st.image(img)
 
 #Lottie file for streamlit animation
-a= st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
-a = a.resize((400, 300))
-st.image(a)
+st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
 
+
+
+with open('input.json', 'r') as json_file:
+    lottie_data = json.load(json_file)
+
+# Set the new width and height for the Lottie animation
+new_width = 200  # Change this to your desired width
+new_height = 200  # Change this to your desired height
+
+# Update the size properties in the Lottie JSON data
+for layer in lottie_data['layers']:
+    if 'w' in layer['ks']:
+        layer['ks']['w']['k'] = new_width
+    if 'h' in layer['ks']:
+        layer['ks']['h']['k'] = new_height
+        
 
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
