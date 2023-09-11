@@ -37,11 +37,11 @@ img = img.resize((400, 300))
 st.image(img)
 
 #Lottie file for streamlit animation
-with st.echo():
-    st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+#with st.echo():
+st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
     
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
-st.sidebar.info("Created and designed by Rajib Kumar Tah")
+st.sidebar.info("Created and Designed by Rajib Kumar Tah")
 
 def main():
     option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
