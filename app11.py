@@ -268,8 +268,8 @@ def streamlit_tableau():
 
 def predict():
     model = st.radio('Choose a model', ['LinearRegression', 'RandomForestRegressor', 'ExtraTreesRegressor', 'KNeighborsRegressor', 'XGBoostRegressor'])
-    #num = st.number_input('How many days forecast?', value=5)
     num = st.slider('How many days forecast do you want?', 0,60,5)
+    #num = st.number_input('How many days forecast?', value=5)
     num = int(num)
     if st.button('Predict'):
         if model == 'LinearRegression':
