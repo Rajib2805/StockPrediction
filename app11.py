@@ -30,7 +30,13 @@ import pylottie
 import json
 
 ######################################################################################
-
+# TO DOWNLOAD DATA
+data = download_data(option, start_date, end_date)
+scaler = StandardScaler()
+# ADDING MORE COLUMNS TO THE data DATAFRAME AND CREATING A NEW DATAFRAME WITH THE NAME data_added_columns
+data_added_columns = data
+data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sma_indicator()
+         
 
 
 
@@ -50,13 +56,7 @@ def main():
     else:
         about()
 
-# TO DOWNLOAD DATA
-data = download_data(option, start_date, end_date)
-scaler = StandardScaler()
-# ADDING MORE COLUMNS TO THE data DATAFRAME AND CREATING A NEW DATAFRAME WITH THE NAME data_added_columns
-data_added_columns = data
-data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sma_indicator()
-         
+
 ###############################################
 # CONTACT FORM TEMPLATE
 
