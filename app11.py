@@ -1,3 +1,4 @@
+# Import Libraries
 import streamlit as st
 import pandas as pd
 import yfinance as yf
@@ -26,8 +27,11 @@ from plotly import graph_objs as go
 import pylottie
 import json
 
+######################################################################################
 
-#Form submit template
+###############################################
+# CONTACT FORM TEMPLATE
+
 st.header(':mailbox: Get in touch with me!')    
 contact_form= """
 <form action="https://formsubmit.co/215ee6bc6047c5e68f74f44b58a0f092" method="POST"/>
@@ -38,10 +42,8 @@ contact_form= """
 """
 st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
 
-
-
-# SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
-# THE MAIN MENU ARE LINKED TO 
+###############################################
+# HEADERS, PHOTOS, ANIMATION AT THE TOP
 
 st.title('Stock Market Dashboard')
 
@@ -56,9 +58,9 @@ with st.sidebar:
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
 st.sidebar.info("Created and Designed by Rajib Kumar Tah")
-
-
+###############################################
 # SIDEBAR MUNU ((menu no.-2)
+
 stock_df = pd.read_csv("StockStreamTickersData.csv")
 tickers = stock_df["Company Name"]
 dict_csv = pd.read_csv('StockStreamTickersData.csv', header=None, index_col=0).to_dict()[1]  # read csv file
