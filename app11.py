@@ -71,6 +71,10 @@ for i in tickers:  # for each asset selected
         val = dict_csv.get(i)  # get symbol from csv file
         symb_list.append(val)  # append symbol to list
 
+
+##################################################################################
+# SIDEBAR MENU (TO ENTER STOCK NAME, DATE/DAYS OF ANALYSIS) 
+
 option = st.sidebar.selectbox('Select the stock', symb_list) #['RELIANCE.NS', 'ITC.NS','BEL.NS']
 
 option = option.upper()
