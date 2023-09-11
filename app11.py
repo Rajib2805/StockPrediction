@@ -37,9 +37,14 @@ img = img.resize((400, 300))
 st.image(img)
 
 #Lottie file for streamlit animation
-#with st.echo():
 st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
-    
+
+'''
+#If I want to show the code also on the app, the following code should be used:
+with st.echo():
+    st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+'''
+
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
 st.sidebar.info("Created and Designed by Rajib Kumar Tah")
 
