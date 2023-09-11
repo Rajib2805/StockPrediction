@@ -52,7 +52,7 @@ def main():
         dataframe()
     elif option == 'Visualize by yourself':
         streamlit_tableau()
-     elif option == 'Predict':
+    elif option == 'Predict':
         predict()
     else:
         contact_us()
