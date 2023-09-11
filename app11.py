@@ -92,25 +92,18 @@ if st.sidebar.button('Run'):
     else:
         st.sidebar.error('Error: End date must fall after start date')
 
+###########################################################################################
+# CALLING THE FUNCTIONS 
 
-# CALLING THE FUNCTION download_data TO DOWNLOAD DATA
-
+# TO DOWNLOAD DATA
 data = download_data(option, start_date, end_date)
 scaler = StandardScaler()
-
-
 # ADDING MORE COLUMNS TO THE data DATAFRAME AND CREATING A NEW DATAFRAME WITH THE NAME data_added_columns
-
 data_added_columns = data
 data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sma_indicator()
 
 
-# MAKING AN ALL INCLUSIVE FUNCTION IN THE MAIN BODY OF THE APP WITH:
-# A) DEFINING THE RADIO BUTTONS
-# B) WHAT ACTION TO BE DONE IF THE RADIO BUTTION IS CLICKED
-# C) THE TECHNICAL ANALYSIS CODE DRIVING THOSE ACTIONS
-
-#####################################################################
+##################################################################################
 # ALL THE FUNCTIONS IN ONE PLACE
 
 def main():
