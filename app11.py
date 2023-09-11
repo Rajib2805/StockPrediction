@@ -1,6 +1,3 @@
-####################################################################################
-# IMPORT LIBRARIES
-
 import streamlit as st
 import pandas as pd
 import yfinance as yf
@@ -23,26 +20,27 @@ import plotly.express as px
 import streamlit.components.v1 as components
 from streamlit_lottie import st_lottie
 import time
-from prophet import Prophet 
-from prophet.plot import plot_plotly
-from plotly import graph_objs as go
-import pylottie
-import json
 
-######################################################################################
-# TO DOWNLOAD DATA
-data = download_data(option, start_date, end_date)
-scaler = StandardScaler()
-# ADDING MORE COLUMNS TO THE data DATAFRAME AND CREATING A NEW DATAFRAME WITH THE NAME data_added_columns
-data_added_columns = data
-data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sma_indicator()
-         
+############################################################################################
+# SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
+# THE MAIN MENU ARE LINKED TO 
+
+st.title('Stock Market Dashboard')
 
 
+#st.Image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
+img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
+st.image(img)
 
+#Lottie file for streamlit animation
+with st.echo():
+    st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+    
+st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
+st.sidebar.info("Created and designed by Rajib Kumar Tah")
 
 def main():
-    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
+    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself'])
     if option == 'Visualize':
         tech_indicators()
     elif option == 'Comparison':
@@ -51,44 +49,21 @@ def main():
         dataframe()
     elif option == 'Visualize by yourself':
         streamlit_tableau()
-    elif option == 'Predict':
-        predict()
     else:
-        about()
+        predict()
 
 
-###############################################
-# CONTACT FORM TEMPLATE
 
-st.header(':mailbox: Get in touch with me!')    
-contact_form= """
-<form action="https://formsubmit.co/215ee6bc6047c5e68f74f44b58a0f092" method="POST"/>
-     <input type="text" name="name" required>
-     <input type="email" name="email" required>
-     <button type="submit">Send</button>
-</form>
-"""
-st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
+####################################################################################################
+#FUNCTION TO DOWNLOAD DATA with YFINANCE
 
-###############################################
-# HEADERS, PHOTOS, ANIMATION AT THE TOP
+@st.cache_resource
+def download_data(op, start_date, end_date):
+    df = yf.download(op, start=start_date, end=end_date, progress=False)
+    return df
 
-st.title('Stock Market Dashboard')
-
-#st.Image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
-img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
-img = img.resize((400, 300))
-st.image(img)
-
-#Lottie file for streamlit animation
-with st.sidebar:
-    st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
-
-st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
-st.sidebar.info("Created and Designed by Rajib Kumar Tah")
-###############################################
-
-
+##################################################################################################
+# SIDEBAR MUNU ((menu no.-2)
 stock_df = pd.read_csv("StockStreamTickersData.csv")
 tickers = stock_df["Company Name"]
 dict_csv = pd.read_csv('StockStreamTickersData.csv', header=None, index_col=0).to_dict()[1]  # read csv file
@@ -97,19 +72,11 @@ for i in tickers:  # for each asset selected
         val = dict_csv.get(i)  # get symbol from csv file
         symb_list.append(val)  # append symbol to list
 
-
-##################################################################################
-# SIDEBAR MENU (TO ENTER STOCK NAME, DATE/DAYS OF ANALYSIS) 
-
 option = st.sidebar.selectbox('Select the stock', symb_list) #['RELIANCE.NS', 'ITC.NS','BEL.NS']
 
 option = option.upper()
 today = datetime.date.today()
-#duration = st.sidebar.number_input('Enter no. of days from today', value= 365) # This is manual input system
-duration = st.sidebar.slider('Enter number of months to analyse:', 0, 60, 12) #This is slider input system
-duration = duration * 30
-st.sidebar.write("Number of months from today :", int(duration/30), 'months')
-
+duration = st.sidebar.number_input('Enter no. of days from today', value= 365)
 before = today - datetime.timedelta(days=duration)
 
 start_date = st.sidebar.date_input('Start Date', value=before)
@@ -122,34 +89,24 @@ if st.sidebar.button('Run'):
     else:
         st.sidebar.error('Error: End date must fall after start date')
 
-###########################################################################################
+#####################################################################################
+# CALLING THE FUNCTION download_data TO DOWNLOAD DATA
 
+data = download_data(option, start_date, end_date)
+scaler = StandardScaler()
 
+#####################################################################################
+# ADDING MORE COLUMNS TO THE data DATAFRAME AND CREATING A NEW DATAFRAME WITH THE NAME data_added_columns
 
-##################################################################################
-# ALL THE FUNCTIONS IN ONE PLACE
+data_added_columns = data
+data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sma_indicator()
 
+####################################################################################
+# MAKING AN ALL INCLUSIVE FUNCTION IN THE MAIN BODY OF THE APP WITH:
+# A) DEFINING THE RADIO BUTTONS
+# B) WHAT ACTION TO BE DONE IF THE RADIO BUTTION IS CLICKED
+# C) THE TECHNICAL ANALYSIS CODE DRIVING THOSE ACTIONS
 
-
-
-#FUNCTION TO DOWNLOAD DATA with YFINANCE
-@st.cache_resource
-def download_data(op, start_date, end_date):
-    df = yf.download(op, start=start_date, end=end_date, progress=False)
-    return df
-
-
-def about():
-    st.subheader("About")
-    st.markdown("""
-        <style>
-    .big-font {
-        font-size:25px !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    st.markdown('<p class="big-font">This is a complete stock analysis app.<br> Thanks!</p>', unsafe_allow_html=True)
-    st.subheader('Developed by Rajib Kumar Tah')
 
 def comparison():
     stock_df = pd.read_csv("StockStreamTickersData.csv")
@@ -206,21 +163,21 @@ def comparison():
             # display closing price of selected assets
             st.write("### Closing Price of {}".format(dropdown))
             st.area_chart(closingPrice)  # display area chart
-            
+            '''
             # display volume of selected assets
             st.write("### Volume of {}".format(dropdown))
             st.area_chart(volume)  # display area chart
-            
+            '''
         elif (dropdown1) == 'Bar Chart':  # if user selects 'Bar Chart'
             st.bar_chart(df)  # display bar chart
             # display closing price of selected assets
             st.write("### Closing Price of {}".format(dropdown))
             st.bar_chart(closingPrice)  # display bar chart
-            
+
             # display volume of selected assets
             st.write("### Volume of {}".format(dropdown))
             st.bar_chart(volume)  # display bar chart
-          
+
         else:
             st.line_chart(df, width=1000, height=800, use_container_width=False)  # display line chart
             # display closing price of selected assets
@@ -234,6 +191,16 @@ def comparison():
     else:  # if user doesn't select any asset
         st.write('Please select atleast one asset')  # display message
 # Stock Performance Comparison Section Ends Here
+
+
+
+
+
+
+
+
+
+
 
     
 def tech_indicators():
@@ -260,6 +227,7 @@ def tech_indicators():
         st.line_chart(MACD(data.Close).macd())
         st.write('Relative Strength Indicator')
         st.line_chart(RSIIndicator(data.Close).rsi())
+
         
         
     elif option == 'BB':
@@ -282,7 +250,7 @@ def tech_indicators():
         st.write('Exponential Moving Average')
         st.line_chart(EMAIndicator(data.Close).ema_indicator())
 
-
+###############################################################################################
 
 def dataframe():
     st.header('Recent Data')
@@ -295,49 +263,28 @@ def streamlit_tableau():
     #st.title("Use Pygwalker In Streamlit")
     pyg_html= pyg.walk (data_added_columns, dark= 'light', return_html=True) # dark= 'light'
     components.html(pyg_html, width= 1000, height= 800, scrolling=True)
-
-
+    
 
 def predict():
-    model = st.radio('Choose a model', ['LinearRegression', 'RandomForestRegressor', 'ExtraTreesRegressor', 'KNeighborsRegressor', 'XGBoostRegressor', 'Prophet'])
-    num = st.slider('How many days forecast do you want?', 0, 60, 5)
-    #num = st.number_input('How many days forecast?', value=5)
+    model = st.radio('Choose a model', ['LinearRegression', 'RandomForestRegressor', 'ExtraTreesRegressor', 'KNeighborsRegressor', 'XGBoostRegressor'])
+    num = st.number_input('How many days forecast?', value=5)
     num = int(num)
     if st.button('Predict'):
         if model == 'LinearRegression':
             engine = LinearRegression()
-            model_engine(engine, int(num))
+            model_engine(engine, num)
         elif model == 'RandomForestRegressor':
             engine = RandomForestRegressor()
-            model_engine(engine, int(num))
+            model_engine(engine, num)
         elif model == 'ExtraTreesRegressor':
             engine = ExtraTreesRegressor()
-            model_engine(engine, int(num))
+            model_engine(engine, num)
         elif model == 'KNeighborsRegressor':
             engine = KNeighborsRegressor()
-            model_engine(engine, int(num))
-        elif model == 'Prophet':
-            #engine = Prophet()
-            #model_engine(engine, int(num))
-            data_frame_train = data [['Date','Close']]
-            data_frame_train = data_frame_train.rename(columns={"Date":"ds","Close":"y"})
-            p = Prophet()
-            p.fit(data_frame_train)
-            future = p.make_future_dataframe(periods=period)
-            forecast = p.predict(future)
-            # Visualizing the output ....
-            st.subheader('Predicted output:')
-            st.write(forecast.tail())
-            st.subheader(f'The Forecast for {n_years} year :')
-            fig1 = plot_plotly(p, forecast)
-            st.plotly_chart(fig1)
-            st.write("Forecast components")
-            fig2 = p.plot_components(forecast)
-            st.write(fig2)
+            model_engine(engine, num)
         else:
             engine = XGBRegressor()
-            model_engine(engine, int(num))
-
+            model_engine(engine, num)
 
 
 def model_engine(model, num):
@@ -366,13 +313,24 @@ def model_engine(model, num):
             \nMAE: {mean_absolute_error(y_test, preds)}')
     # predicting stock price based on the number of days
     forecast_pred = model.predict(x_forecast)
-    
     day = 1
     for i in forecast_pred:
         st.text(f'Day {day}: {i}')
         day += 1
 
-#######################################################################################
+#Form submit template
+st.header(':mailbox: Get in touch with me!')    
+contact_form= '''
+<form action="https://formsubmit.co/rajibtah@gmail.com" method="POST"/>
+     <input type="text" name="name" required>
+     <input type="email" name="email" required>
+     <button type="submit">Send</button>
+</form>
+'''
+st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
+
+
+
 
 
 if __name__ == '__main__':
