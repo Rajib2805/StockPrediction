@@ -32,31 +32,6 @@ import json
 
 st.title('Stock Market Dashboard')
 
-
-import streamlit as st
-import matplotlib.pyplot as plt
-
-cat = ["bored", "happy", "bored", "bored", "happy", "bored"]
-dog = ["happy", "happy", "happy", "happy", "bored", "bored"]
-activity = ["combing", "drinking", "feeding", "napping", "playing", "washing"]
-
-fig, ax = plt.subplots(figsize=(3, 1))
-ax.plot(activity, dog, label="dog")
-ax.plot(activity, cat, label="cat")
-ax.legend()
-
-st.pyplot(fig)
-
-
-
-
-
-
-
-
-
-
-
 #st.Image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
 img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 img = img.resize((400, 300))
