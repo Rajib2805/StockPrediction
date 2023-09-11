@@ -71,8 +71,8 @@ with st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json", 'r')
     lottie_data = json.load(json_file)
 
 # Set the new width and height for the Lottie animation
-new_width = 200  # Change this to your desired width
-new_height = 200  # Change this to your desired height
+new_width = 20  # Change this to your desired width
+new_height = 20  # Change this to your desired height
 
 # Update the size properties in the Lottie JSON data
 for layer in lottie_data['layers']:
