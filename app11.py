@@ -33,8 +33,8 @@ st.title('Stock Market Dashboard')
 
 #st.Image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
 img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
-image = image.resize((600, 400))
-st.image(image)
+img = img.resize((600, 400))
+st.image(img)
 
 #Lottie file for streamlit animation
 with st.echo():
