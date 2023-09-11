@@ -31,6 +31,22 @@ import json
 
 ######################################################################################
 
+
+def main():
+    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
+    if option == 'Visualize':
+        tech_indicators()
+    elif option == 'Comparison':
+        comparison()
+    elif option == 'Recent Data':
+        dataframe()
+    elif option == 'Visualize by yourself':
+        streamlit_tableau()
+    elif option == 'Predict':
+        predict()
+    else:
+        about()
+         
 ###############################################
 # CONTACT FORM TEMPLATE
 
@@ -110,20 +126,7 @@ data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sm
 ##################################################################################
 # ALL THE FUNCTIONS IN ONE PLACE
 
-def main():
-    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
-    if option == 'Visualize':
-        tech_indicators()
-    elif option == 'Comparison':
-        comparison()
-    elif option == 'Recent Data':
-        dataframe()
-    elif option == 'Visualize by yourself':
-        streamlit_tableau()
-    elif option == 'Predict':
-        predict()
-    else:
-        about()
+
 
 
 #FUNCTION TO DOWNLOAD DATA with YFINANCE
