@@ -44,6 +44,13 @@ with st.sidebar:
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
 st.sidebar.info("Created and Designed by Rajib Kumar Tah")
 
+
+
+
+
+
+
+
 def main():
     option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
     if option == 'Visualize':
@@ -60,10 +67,7 @@ def main():
         about()
 
 
-
-
 #FUNCTION TO DOWNLOAD DATA with YFINANCE
-
 @st.cache_resource
 def download_data(op, start_date, end_date):
     df = yf.download(op, start=start_date, end=end_date, progress=False)
@@ -276,6 +280,23 @@ def streamlit_tableau():
     components.html(pyg_html, width= 1000, height= 800, scrolling=True)
     
 
+
+
+#Form submit template
+st.header(':mailbox: Get in touch with me!')    
+contact_form= """
+<form action="https://formsubmit.co/215ee6bc6047c5e68f74f44b58a0f092" method="POST"/>
+     <input type="text" name="name" required>
+     <input type="email" name="email" required>
+     <button type="submit">Send</button>
+</form>
+"""
+st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
+
+
+#####################################################################
+# ALL THE FUNCTIONS IN ONE PLACE
+
 def predict():
     model = st.radio('Choose a model', ['LinearRegression', 'RandomForestRegressor', 'ExtraTreesRegressor', 'KNeighborsRegressor', 'XGBoostRegressor', 'Prophet'])
     num = st.slider('How many days forecast do you want?', 0, 60, 5)
@@ -299,33 +320,23 @@ def predict():
             #model_engine(engine, int(num))
             data_frame_train = data [['Date','Close']]
             data_frame_train = data_frame_train.rename(columns={"Date":"ds","Close":"y"})
-
             p = Prophet()
             p.fit(data_frame_train)
-
             future = p.make_future_dataframe(periods=period)
             forecast = p.predict(future)
-
             # Visualizing the output ....
-
             st.subheader('Predicted output:')
             st.write(forecast.tail())
-
             st.subheader(f'The Forecast for {n_years} year :')
             fig1 = plot_plotly(p, forecast)
             st.plotly_chart(fig1)
-
-
-
             st.write("Forecast components")
             fig2 = p.plot_components(forecast)
             st.write(fig2)
-
-
-
         else:
             engine = XGBRegressor()
             model_engine(engine, int(num))
+
 
 
 def model_engine(model, num):
@@ -359,18 +370,6 @@ def model_engine(model, num):
     for i in forecast_pred:
         st.text(f'Day {day}: {i}')
         day += 1
-
-#Form submit template
-st.header(':mailbox: Get in touch with me!')    
-contact_form= """
-<form action="https://formsubmit.co/215ee6bc6047c5e68f74f44b58a0f092" method="POST"/>
-     <input type="text" name="name" required>
-     <input type="email" name="email" required>
-     <button type="submit">Send</button>
-</form>
-"""
-st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
-
 
 
 
