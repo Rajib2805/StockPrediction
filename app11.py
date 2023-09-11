@@ -214,16 +214,6 @@ def comparison():
 # Stock Performance Comparison Section Ends Here
 
 
-
-
-
-
-
-
-
-
-
-    
 def tech_indicators():
     st.header('Technical Indicators')
     option = st.radio('Choose a Technical Indicator to Visualize', ['All important indicators', 'BB', 'MACD', 'RSI', 'EMA'])
