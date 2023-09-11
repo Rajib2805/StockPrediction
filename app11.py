@@ -39,7 +39,7 @@ img = img.resize((400, 300))
 st.image(img)
 
 #Lottie file for streamlit animation
-#st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
 
 
 
