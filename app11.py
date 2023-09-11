@@ -26,7 +26,7 @@ from plotly import graph_objs as go
 import pylottie
 import json
 
-############################################################################################
+
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
 # THE MAIN MENU ARE LINKED TO 
 
@@ -61,7 +61,7 @@ def main():
 
 
 
-####################################################################################################
+
 #FUNCTION TO DOWNLOAD DATA with YFINANCE
 
 @st.cache_resource
@@ -69,7 +69,7 @@ def download_data(op, start_date, end_date):
     df = yf.download(op, start=start_date, end=end_date, progress=False)
     return df
 
-##################################################################################################
+
 # SIDEBAR MUNU ((menu no.-2)
 stock_df = pd.read_csv("StockStreamTickersData.csv")
 tickers = stock_df["Company Name"]
@@ -100,19 +100,19 @@ if st.sidebar.button('Run'):
     else:
         st.sidebar.error('Error: End date must fall after start date')
 
-#####################################################################################
+
 # CALLING THE FUNCTION download_data TO DOWNLOAD DATA
 
 data = download_data(option, start_date, end_date)
 scaler = StandardScaler()
 
-#####################################################################################
+
 # ADDING MORE COLUMNS TO THE data DATAFRAME AND CREATING A NEW DATAFRAME WITH THE NAME data_added_columns
 
 data_added_columns = data
 data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sma_indicator()
 
-####################################################################################
+
 # MAKING AN ALL INCLUSIVE FUNCTION IN THE MAIN BODY OF THE APP WITH:
 # A) DEFINING THE RADIO BUTTONS
 # B) WHAT ACTION TO BE DONE IF THE RADIO BUTTION IS CLICKED
@@ -261,7 +261,7 @@ def tech_indicators():
         st.write('Exponential Moving Average')
         st.line_chart(EMAIndicator(data.Close).ema_indicator())
 
-###############################################################################################
+
 
 def dataframe():
     st.header('Recent Data')
