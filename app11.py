@@ -39,7 +39,8 @@ img = img.resize((400, 300))
 st.image(img)
 
 #Lottie file for streamlit animation
-st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+with st.sidebar:
+    st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
 st.sidebar.info("Created and Designed by Rajib Kumar Tah")
