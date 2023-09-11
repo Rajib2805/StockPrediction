@@ -49,9 +49,9 @@ with open(st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
 # Update the size properties in the Lottie JSON data
 for layer in lottie_data['layers']:
     if 'w' in layer['ks']:
-        layer['ks']['w']['k'] = 200
+        layer['ks']['w']['k'] = 20
     if 'h' in layer['ks']:
-        layer['ks']['h']['k'] = 100
+        layer['ks']['h']['k'] = 10
 
 
 
