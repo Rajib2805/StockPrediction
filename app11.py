@@ -41,7 +41,7 @@ st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options 
 st.sidebar.info("Created and designed by Rajib Kumar Tah")
 
 def main():
-    option = st.sidebar.selectbox('Make a choice', ['About', 'Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself'])
+    option = st.sidebar.selectbox('Make a choice', ['About', 'Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'Contact Us'])
     if option == 'About':
         about()
     if option == 'Visualize':
@@ -52,8 +52,11 @@ def main():
         dataframe()
     elif option == 'Visualize by yourself':
         streamlit_tableau()
-    else:
+     elif option == 'Predict':
         predict()
+    else:
+        contact_us()
+    
 
 
 def about():
@@ -337,16 +340,17 @@ def model_engine(model, num):
         st.text(f'Day {day}: {i}')
         day += 1
 
-#Form submit template
-st.header(':mailbox: Get in touch with me!')    
-contact_form= '''
-<form action="https://formsubmit.co/rajibtah@gmail.com" method="POST"/>
-     <input type="text" name="name" required>
-     <input type="email" name="email" required>
-     <button type="submit">Send</button>
-</form>
-'''
-st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
+def contact_us():
+    #Form submit template
+    st.header(':mailbox: Get in touch with me!')    
+    contact_form= """
+    <form action="https://formsubmit.co/rajibtah@gmail.com" method="POST"/>
+         <input type="text" name="name" required>
+         <input type="email" name="email" required>
+         <button type="submit">Send</button>
+    </form>
+    """
+    st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
 
 
 
