@@ -56,7 +56,9 @@ for layer in lottie_data['layers']:
         layer['ks']['w']['k'] = new_width
     if 'h' in layer['ks']:
         layer['ks']['h']['k'] = new_height
-        
+
+with open('output.json', 'w') as json_file:
+    json.dump(lottie_data, json_file, indent=2)
 
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
