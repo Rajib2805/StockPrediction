@@ -48,7 +48,7 @@ with st.echo():
 '''
 
 # Load the Lottie JSON file
-with st_lottie.open("https://assets5.lottiefiles.com/packages/lf20_V9t630.json", 'r') as json_file:
+with st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json", 'r') as json_file:
     lottie_data = json.load(json_file)
 
 # Set the new width and height for the Lottie animation
