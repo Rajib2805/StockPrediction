@@ -106,6 +106,33 @@ data_added_columns['SMA'] = SMAIndicator(data_added_columns.Close, window=14).sm
 # B) WHAT ACTION TO BE DONE IF THE RADIO BUTTION IS CLICKED
 # C) THE TECHNICAL ANALYSIS CODE DRIVING THOSE ACTIONS
 
+#####################################################################
+# ALL THE FUNCTIONS IN ONE PLACE
+
+
+def main():
+    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
+    if option == 'Visualize':
+        tech_indicators()
+    elif option == 'Comparison':
+        comparison()
+    elif option == 'Recent Data':
+        dataframe()
+    elif option == 'Visualize by yourself':
+        streamlit_tableau()
+    elif option == 'Predict':
+        predict()
+    else:
+        about()
+
+
+#FUNCTION TO DOWNLOAD DATA with YFINANCE
+@st.cache_resource
+def download_data(op, start_date, end_date):
+    df = yf.download(op, start=start_date, end=end_date, progress=False)
+    return df
+
+
 def about():
     st.subheader("About")
     st.markdown("""
@@ -262,33 +289,8 @@ def streamlit_tableau():
     #st.title("Use Pygwalker In Streamlit")
     pyg_html= pyg.walk (data_added_columns, dark= 'light', return_html=True) # dark= 'light'
     components.html(pyg_html, width= 1000, height= 800, scrolling=True)
-    
 
 
-#####################################################################
-# ALL THE FUNCTIONS IN ONE PLACE
-def main():
-    option = st.sidebar.selectbox('Make a choice', ['Visualize', 'Comparison', 'Recent Data', 'Predict', 'Visualize by yourself', 'About'])
-    if option == 'Visualize':
-        tech_indicators()
-    elif option == 'Comparison':
-        comparison()
-    elif option == 'Recent Data':
-        dataframe()
-    elif option == 'Visualize by yourself':
-        streamlit_tableau()
-    elif option == 'Predict':
-        predict()
-    else:
-        about()
-
-
-#FUNCTION TO DOWNLOAD DATA with YFINANCE
-@st.cache_resource
-def download_data(op, start_date, end_date):
-    df = yf.download(op, start=start_date, end=end_date, progress=False)
-    return df
-     
 
 def predict():
     model = st.radio('Choose a model', ['LinearRegression', 'RandomForestRegressor', 'ExtraTreesRegressor', 'KNeighborsRegressor', 'XGBoostRegressor', 'Prophet'])
