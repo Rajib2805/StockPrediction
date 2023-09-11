@@ -39,11 +39,17 @@ img = img.resize((400, 300))
 st.image(img)
 
 #Lottie file for streamlit animation
-st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+#st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
+
+
+
+
+
+
 
 a= st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
-new_width = 200  # Change this to your desired width
-new_height = 200  # Change this to your desired height
+new_width = 20  # Change this to your desired width
+new_height = 20  # Change this to your desired height
 
 # Update the size properties in the Lottie JSON data
 for layer in a['layers']:
