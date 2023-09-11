@@ -77,9 +77,11 @@ option = st.sidebar.selectbox('Select the stock', symb_list) #['RELIANCE.NS', 'I
 
 option = option.upper()
 today = datetime.date.today()
-duration = st.sidebar.number_input('Enter no. of days from today', value= 365)
+#duration = st.sidebar.number_input('Enter no. of days from today', value= 365) #This is a manual input system
+duration = st.sidebar.slider('Enter number of months to analyse:', 0,60,12) #This is a slider input system
+duration = duration *30
+st.sidebar.write('Number of days from today:', int(duration/30),'months')
 before = today - datetime.timedelta(days=duration)
-
 start_date = st.sidebar.date_input('Start Date', value=before)
 end_date = st.sidebar.date_input('End date', today)
 
