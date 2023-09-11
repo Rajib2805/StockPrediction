@@ -256,7 +256,6 @@ def tech_indicators():
     ########################################
 
     if option == 'All important indicators':
-        fig = plt.figure(figsize=(2,2))
         st.write('Close Price and SMA')
         st.line_chart(data_added_columns[['Close', 'SMA']])
         st.write('BollingerBands')
@@ -265,8 +264,6 @@ def tech_indicators():
         st.line_chart(MACD(data.Close).macd())
         st.write('Relative Strength Indicator')
         st.line_chart(RSIIndicator(data.Close).rsi())
-        st.line_chart(fig)
-
         
         
     elif option == 'BB':
