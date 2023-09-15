@@ -367,10 +367,10 @@ def predictionchart():
     df_future['Actual'] = np.nan
     results = pd.concat([df_past, df_future]).set_index('Date')
    
-   #Visualisation 
+    #Visualisation 
     st.write('Prediction of: ', stock)
-    fig.update_layout(height=300, width=600, font_family="Courier New", font_color="blue", title_font_family="Times New Roman", title_font_color="red", legend_title_font_color="green", title_font_size=40)
     fig = px.line(results, title="Chart")
+    fig.update_layout(height=300, width=600, font_family="Courier New", font_color="blue", title_font_family="Times New Roman", title_font_color="red", legend_title_font_color="green", title_font_size=40)
     fig.update_xaxes(showgrid=False, rangeslider_visible=True, rangeselector=dict(buttons=list([
                 dict(count=1, label="1m", step="month", stepmode="backward"),
                 dict(count=6, label="6m", step="month", stepmode="backward"),
