@@ -366,8 +366,7 @@ def predictionchart():
       df_future['Forecast'] = Y_.flatten()
       df_future['Actual'] = np.nan
       results = pd.concat([df_past, df_future]).set_index('Date')
-
-      st.write(stock)
+      st.write('Prediction of: 'stock)
       st.line_chart(results)
 
     def model_engine(model, num):
