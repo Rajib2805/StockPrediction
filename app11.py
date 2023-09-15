@@ -370,7 +370,7 @@ def predictionchart():
     #st.line_chart(results)
     fig = px.line(results)
     fig.update_xaxes(showgrid=False) # (showgrid=False) means the gridlines are not required
-    fig.update_yaxes(yaxis_title='Stock price', showgrid=True)
+    fig.update_yaxes(showgrid=True)
     yaxis_title="Stock price"
     st.plotly_chart(fig, theme="streamlit")
 
