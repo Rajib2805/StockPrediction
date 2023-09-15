@@ -365,8 +365,9 @@ def predictionchart():
       df_future['Date'] = pd.date_range(start=df_past['Date'].iloc[-1] + pd.Timedelta(days=1), periods=n_forecast)
       df_future['Forecast'] = Y_.flatten()
       df_future['Actual'] = np.nan
-      results = df_past.concat(df_future).set_index('Date')
-
+      #results = df_past.concat(df_future).set_index('Date')
+      results = pd.concat([df_past, df_future]).set_index('Date')
+        
       #visualsise the data
       plt.figure(figsize=(10,6), facecolor='white')
       plt.title('Stock Forecast')
