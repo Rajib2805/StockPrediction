@@ -307,7 +307,7 @@ def predict():
             model_engine(engine, num)
 
 def predictionchart():
-    pass()
+    pass
 
 def model_engine(model, num):
     # getting only the closing price
