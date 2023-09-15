@@ -366,7 +366,8 @@ def predictionchart():
       df_future['Forecast'] = Y_.flatten()
       df_future['Actual'] = np.nan
       results = pd.concat([df_past, df_future]).set_index('Date')
-        
+
+      '''
       #visualise the data
       plt.figure(figsize=(10,6), facecolor='white')
       plt.title('Stock Forecast')
@@ -378,8 +379,9 @@ def predictionchart():
       plt.grid(False)
       ax = plt.gca()
       ax.set_facecolor('xkcd:white')
-      print(stock)
-      plt.show()
+      '''
+      st.write(stock)
+      st.line_chart(results)
 
     def model_engine(model, num):
         # getting only the closing price
