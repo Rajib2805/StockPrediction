@@ -313,8 +313,6 @@ def predictionchart():
 
     for stock in stocks:
       stock_short = yf.Ticker(stock)
-      st.write(stock_short)
-      #df = yf.download(tickers=['SBIN.NS'], period='3y')
       df = stock_short.history(start= date.today()-timedelta(120), end= date.today(), interval= '1d')
       y = df['Close'].fillna(method='ffill')
       y = y.values.reshape(-1, 1)
@@ -366,7 +364,7 @@ def predictionchart():
       df_future['Forecast'] = Y_.flatten()
       df_future['Actual'] = np.nan
       results = pd.concat([df_past, df_future]).set_index('Date')
-      st.write('Prediction of: 'stock)
+      st.write('Prediction of: ', stock)
       st.line_chart(results)
 
     def model_engine(model, num):
