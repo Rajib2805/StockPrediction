@@ -20,6 +20,12 @@ import plotly.express as px
 import streamlit.components.v1 as components
 from streamlit_lottie import st_lottie
 import time
+import tensorflow as tf
+import numpy as np
+from keras.layers import Dense, LSTM
+from keras.models import Sequential
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import MinMaxScaler
 
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
@@ -301,15 +307,6 @@ def predict():
             model_engine(engine, num)
 
 def predictionchart():
-    import numpy as np
-    import pandas as pd
-    import yfinance as yf
-    import tensorflow as tf
-    from keras.layers import Dense, LSTM
-    from keras.models import Sequential
-    import matplotlib.pyplot as plt
-
-    from sklearn.preprocessing import MinMaxScaler
     pd.options.mode.chained_assignment = None
     tf.random.set_seed(0)
 
