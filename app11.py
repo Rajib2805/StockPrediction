@@ -325,7 +325,7 @@ def predictionchart():
     y = scaler.transform(y)
 
     # generate the input and output sequences
-    n_lookback = 150  # length of input sequences (lookback period)
+    n_lookback = 90  # length of input sequences (lookback period)
     n_forecast = 5  # length of output sequences (forecast period)
 
     X = []
