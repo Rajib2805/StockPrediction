@@ -367,7 +367,7 @@ def predictionchart():
     st.write('Prediction of: ', stock)
     #st.line_chart(results)
     fig = px.line(results)
-    fig.update_xaxes(showgrid=False)
+    fig.update_xaxes # (showgrid=False) means the gridlines are not required
     fig.update_yaxes(showgrid=False)
     st.plotly_chart(fig, theme="streamlit")
 
