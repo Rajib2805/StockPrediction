@@ -15,3 +15,5 @@ xgboost
 streamlit_lottie
 prophet
 pylottie
+tensorflow
+keras
