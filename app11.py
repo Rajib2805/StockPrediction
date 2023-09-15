@@ -309,7 +309,7 @@ def predict():
 def predictionchart():
     #stocks = ['CUBEXTUB.NS', 'AIAENG.NS',  'ASTEC.NS']
     #stocks = symb_list
-    stocks = option
+    stock = option
     pd.options.mode.chained_assignment = None
     tf.random.set_seed(0)
 
