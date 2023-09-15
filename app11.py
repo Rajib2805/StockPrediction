@@ -367,19 +367,6 @@ def predictionchart():
       df_future['Actual'] = np.nan
       results = pd.concat([df_past, df_future]).set_index('Date')
 
-      '''
-      #visualise the data
-      plt.figure(figsize=(10,6), facecolor='white')
-      plt.title('Stock Forecast')
-      plt.xlabel('', fontsize= 6)
-      plt.ylabel('Stock price', fontsize= 6)
-      plt.plot(results, linewidth= 2)
-      plt.xticks(rotation = 75)
-      plt.legend(['Actual', 'Forecast', 'Predictions'], loc= 'upper left', facecolor='white')
-      plt.grid(False)
-      ax = plt.gca()
-      ax.set_facecolor('xkcd:white')
-      '''
       st.write(stock)
       st.line_chart(results)
 
