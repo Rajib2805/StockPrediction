@@ -381,11 +381,11 @@ def predictionchart():
     #fig.update_layout(height=300, width=600, font_family="Courier New", font_color="blue", title_font_family="Times New Roman", title_font_color="red", legend_title_font_color="green", title_font_size=40))
     fig.update_layout(
     font_family="Courier New",
-    font_color="blue",
+    font_color="green",
     title_font_family="Times New Roman",
-    title_font_color="red",
+    title_font_color="Purple",
     legend_title_font_color="green",
-    title_font_size=40,)
+    title_font_size=15,)
     st.plotly_chart(fig, theme="streamlit")
 
 
