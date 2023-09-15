@@ -387,7 +387,7 @@ def predictionchart():
     legend_title_font_color="green",
     title_font_size=15,)
     #st.plotly_chart(fig, theme="streamlit")
-    st.plotly_chart(fig, theme="None")
+    st.plotly_chart(fig, theme=None)
 
            
     def model_engine(model, num):
