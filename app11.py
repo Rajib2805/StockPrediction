@@ -326,7 +326,7 @@ def predictionchart():
 
     # generate the input and output sequences
     n_lookback = 150  # length of input sequences (lookback period)
-    n_forecast = 15  # length of output sequences (forecast period)
+    n_forecast = 5  # length of output sequences (forecast period)
 
     X = []
     Y = []
