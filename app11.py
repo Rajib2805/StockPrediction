@@ -310,7 +310,7 @@ def predictionchart():
     pd.options.mode.chained_assignment = None
     tf.random.set_seed(0)
 
-    for stock in stocks:
+    for stock in symb_list:
       stock_short = yf.Ticker(stock)
       #df = yf.download(tickers=['SBIN.NS'], period='3y')
       df = stock_short.history(start= date.today()-timedelta(120), end= date.today(), interval= '1d')
