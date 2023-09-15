@@ -307,9 +307,8 @@ def predict():
             model_engine(engine, num)
 
 def predictionchart():
-    #stocks = ['CUBEXTUB.NS', 'AIAENG.NS',  'ASTEC.NS']
-    #stocks = symb_list
-    stock = option
+    stock = option # One stock prediction chart at a time for the stock chosen in the left panel dropdown
+    #stocks = ['CUBEXTUB.NS', 'AIAENG.NS',  'ASTEC.NS'] # if bultiple stock predictions are required
     pd.options.mode.chained_assignment = None
     tf.random.set_seed(0)
 
