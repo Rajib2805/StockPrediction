@@ -313,6 +313,7 @@ def predictionchart():
 
     for stock in stocks:
       stock_short = yf.Ticker(stock)
+      st.write(stock_short)
       #df = yf.download(tickers=['SBIN.NS'], period='3y')
       df = stock_short.history(start= date.today()-timedelta(120), end= date.today(), interval= '1d')
       y = df['Close'].fillna(method='ffill')
