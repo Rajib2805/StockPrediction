@@ -368,7 +368,7 @@ def predictionchart():
     results = pd.concat([df_past, df_future]).set_index('Date')
     st.write('Prediction of: ', stock)
     #st.line_chart(results)
-    fig = px.line(results)
+    fig = px.line(results, y='Stock price')
     fig.update_xaxes(showgrid=False) # (showgrid=False) means the gridlines are not required
     fig.update_yaxes(showgrid=True)
     yaxis_title="Stock price"
