@@ -312,8 +312,8 @@ def predictionchart():
 
     for stock in symb_list:
       stock_short = yf.Ticker(stock)
-      #df = yf.download(tickers=['SBIN.NS'], period='3y')
-      df = stock_short.history(start= date.today()-timedelta(120), end= date.today(), interval= '1d')
+      df = yf.download(tickers=['SBIN.NS'], period='3y')
+      #df = stock_short.history(start= date.today()-timedelta(120), end= date.today(), interval= '1d')
       y = df['Close'].fillna(method='ffill')
       y = y.values.reshape(-1, 1)
 
