@@ -395,7 +395,7 @@ def predictionchart():
     font_color="blue",
     title_font_family="Times New Roman",
     title_font_color="red",
-    legend_title_font_color="green"
+    legend_title_font_color="green",
     title_font_size=40,
     )
     st.plotly_chart(fig, theme="streamlit")
