@@ -311,9 +311,29 @@ def predictionchart():
     tf.random.set_seed(0)
 
     for stock in symb_list:
-      stock_short = yf.Ticker(stock)
-      df = yf.download(tickers=['SBIN.NS'], period='3y')
+      stock_df = pd.read_csv("StockStreamTickersData.csv")
+      st.subheader("Stocks Performance Comparison")
+      tickers = stock_df["Company Name"]
+      # dropdown for selecting assets
+      dropdown = st.multiselect('Pick your assets', tickers)
+    
+      with st.spinner('Loading...'):  # spinner while loading
+          time.sleep(2)
+          # st.success('Loaded')
+
+      dict_csv = pd.read_csv('StockStreamTickersData.csv', header=None, index_col=0).to_dict()[1]  # read csv file
+      symb_list = []  # list for storing symbols
+      for i in dropdown:  # for each asset selected
+          val = dict_csv.get(i)  # get symbol from csv file
+          symb_list.append(val)  # append symbol to list
+        
+        
+        
+      #stock_short = yf.Ticker(stock)
+      #df = yf.download(tickers=['SBIN.NS'], period='3y')
       #df = stock_short.history(start= date.today()-timedelta(120), end= date.today(), interval= '1d')
+      df = yf.download(tickers= symb_list, period='3y')
+      
       y = df['Close'].fillna(method='ffill')
       y = y.values.reshape(-1, 1)
 
