@@ -365,7 +365,9 @@ def predictionchart():
     df_future['Actual'] = np.nan
     results = pd.concat([df_past, df_future]).set_index('Date')
     st.write('Prediction of: ', stock)
-    st.line_chart(results)
+    #st.line_chart(results)
+    fig = px.line(results)
+    st.plotly_chart(fig, theme="streamlit")
 
            
     def model_engine(model, num):
