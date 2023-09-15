@@ -307,38 +307,109 @@ def predict():
             model_engine(engine, num)
 
 def predictionchart():
-    pass
+    stocks = ['CUBEXTUB.NS', 'AIAENG.NS',  'ASTEC.NS']
+    pd.options.mode.chained_assignment = None
+    tf.random.set_seed(0)
 
-def model_engine(model, num):
-    # getting only the closing price
-    df = data[['Close']]
-    # shifting the closing price based on number of days forecast
-    df['preds'] = data.Close.shift(-num)
-    # scaling the data
-    x = df.drop(['preds'], axis=1).values
-    x = scaler.fit_transform(x)
-    # storing the last num_days data
-    x_forecast = x[-num:]
-    # selecting the required values for training
-    x = x[:-num]
-    # getting the preds column
-    y = df.preds.values
-    # selecting the required values for training
-    y = y[:-num]
+    for stock in stocks:
+      stock_short = yf.Ticker(stock)
+      #df = yf.download(tickers=['SBIN.NS'], period='3y')
+      df = stock_short.history(start= date.today()-timedelta(120), end= date.today(), interval= '1d')
+      y = df['Close'].fillna(method='ffill')
+      y = y.values.reshape(-1, 1)
 
-    #spliting the data
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.2, random_state=7)
-    # training the model
-    model.fit(x_train, y_train)
-    preds = model.predict(x_test)
-    st.text(f'r2_score: {r2_score(y_test, preds)} \
-            \nMAE: {mean_absolute_error(y_test, preds)}')
-    # predicting stock price based on the number of days
-    forecast_pred = model.predict(x_forecast)
-    day = 1
-    for i in forecast_pred:
-        st.text(f'Day {day}: {i}')
-        day += 1
+      # scale the data
+      scaler = MinMaxScaler(feature_range=(0, 1))
+      scaler = scaler.fit(y)
+      y = scaler.transform(y)
+
+      # generate the input and output sequences
+      n_lookback = 70  # length of input sequences (lookback period)
+      n_forecast = 5  # length of output sequences (forecast period)
+
+      X = []
+      Y = []
+
+      for i in range(n_lookback, len(y) - n_forecast + 1):
+          X.append(y[i - n_lookback: i])
+          Y.append(y[i: i + n_forecast])
+
+      X = np.array(X)
+      Y = np.array(Y)
+
+      # fit the model
+      model = Sequential()
+      model.add(LSTM(units=50, return_sequences=True, input_shape=(n_lookback, 1)))
+      model.add(LSTM(units=50))
+      model.add(Dense(n_forecast))
+
+      model.compile(loss='mean_squared_error', optimizer='adam')
+      model.fit(X, Y, epochs= 30, batch_size=32, verbose=0)
+
+      # generate the forecasts
+      X_ = y[- n_lookback:]  # last available input sequence
+      X_ = X_.reshape(1, n_lookback, 1)
+
+      Y_ = model.predict(X_).reshape(-1, 1)
+      Y_ = scaler.inverse_transform(Y_)
+
+      # organize the results in a data frame
+      df_past = df[['Close']].reset_index()
+      df_past.rename(columns={'index': 'Date', 'Close': 'Actual'}, inplace= True)
+      df_past['Date'] = pd.to_datetime(df_past['Date'])
+      df_past['Forecast'] = np.nan
+      df_past['Forecast'].iloc[-1] = df_past['Actual'].iloc[-1]
+
+      df_future = pd.DataFrame(columns=['Date', 'Actual', 'Forecast'])
+      df_future['Date'] = pd.date_range(start=df_past['Date'].iloc[-1] + pd.Timedelta(days=1), periods=n_forecast)
+      df_future['Forecast'] = Y_.flatten()
+      df_future['Actual'] = np.nan
+      results = df_past.append(df_future).set_index('Date')
+
+      #visualsise the data
+      plt.figure(figsize=(10,6), facecolor='white')
+      plt.title('Stock Forecast')
+      plt.xlabel('', fontsize= 6)
+      plt.ylabel('Stock price', fontsize= 6)
+      plt.plot(results, linewidth= 2)
+      plt.xticks(rotation = 75)
+      plt.legend(['Actual', 'Forecast', 'Predictions'], loc= 'upper left', facecolor='white')
+      plt.grid(False)
+      ax = plt.gca()
+      ax.set_facecolor('xkcd:white')
+      print(stock)
+      plt.show()
+
+    def model_engine(model, num):
+        # getting only the closing price
+        df = data[['Close']]
+        # shifting the closing price based on number of days forecast
+        df['preds'] = data.Close.shift(-num)
+        # scaling the data
+        x = df.drop(['preds'], axis=1).values
+        x = scaler.fit_transform(x)
+        # storing the last num_days data
+        x_forecast = x[-num:]
+        # selecting the required values for training
+        x = x[:-num]
+        # getting the preds column
+        y = df.preds.values
+        # selecting the required values for training
+        y = y[:-num]
+
+        #spliting the data
+        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.2, random_state=7)
+        # training the model
+        model.fit(x_train, y_train)
+        preds = model.predict(x_test)
+        st.text(f'r2_score: {r2_score(y_test, preds)} \
+                \nMAE: {mean_absolute_error(y_test, preds)}')
+        # predicting stock price based on the number of days
+        forecast_pred = model.predict(x_forecast)
+        day = 1
+        for i in forecast_pred:
+            st.text(f'Day {day}: {i}')
+            day += 1
 
 def contact_us():
     #Form submit template
