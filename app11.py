@@ -306,6 +306,8 @@ def predict():
             engine = XGBRegressor()
             model_engine(engine, num)
 
+
+
 def predictionchart():
     stock = option # One stock prediction chart at a time for the stock chosen in the left panel dropdown
     #stocks = ['CUBEXTUB.NS', 'AIAENG.NS',  'ASTEC.NS'] # if bultiple stock predictions are required
@@ -367,7 +369,7 @@ def predictionchart():
     st.write('Prediction of: ', stock)
     #st.line_chart(results)
     fig = px.line(results)
-    fig.update_xaxes() # (showgrid=False) means the gridlines are not required
+    fig.update_xaxes(showgrid=True) # (showgrid=False) means the gridlines are not required
     fig.update_yaxes(showgrid=False)
     st.plotly_chart(fig, theme="streamlit")
 
