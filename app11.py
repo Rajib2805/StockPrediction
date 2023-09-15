@@ -307,7 +307,8 @@ def predict():
             model_engine(engine, num)
 
 def predictionchart():
-    stocks = ['CUBEXTUB.NS', 'AIAENG.NS',  'ASTEC.NS']
+    #stocks = ['CUBEXTUB.NS', 'AIAENG.NS',  'ASTEC.NS']
+    stocks = symb_list
     pd.options.mode.chained_assignment = None
     tf.random.set_seed(0)
 
