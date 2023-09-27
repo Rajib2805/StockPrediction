@@ -296,7 +296,7 @@ def tech_indicators():
 
 def dataframe():
     st.header('Recent Data')
-    st.dataframe(data.tail(100), df.style.highlight_max(axis=0))
+    st.dataframe(data.tail(100), data.style.highlight_max(axis=0))
     #st.dataframe(df.style.highlight_max(axis=0))
 
 
