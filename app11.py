@@ -96,6 +96,7 @@ for i in tickers:  # for each asset selected
         symb_list.append(val)  # append symbol to list
 
 option = st.sidebar.selectbox('Select the stock', symb_list) #['RELIANCE.NS', 'ITC.NS','BEL.NS']
+st.write(":heavy_minus_sign:" * 5) # horizontal separator line. Just change 34 as needed.
 
 option = option.upper()
 today = datetime.date.today()
