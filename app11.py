@@ -447,8 +447,9 @@ def contact_us():
          <input type="email" name="email" required>
          <button type="submit">Send</button>
     </form>
-    """
+    
     st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
+    """
 
 
 
