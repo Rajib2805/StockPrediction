@@ -99,7 +99,7 @@ def about():
     import random
     df = pd.DataFrame({
         "name": ["Roadmap", "Extras", "Issues"],
-        "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],})
+        "views_history": df[['Close', 'Volume']],})
     
     #Calling the data which is set above 
     st.dataframe(df,
