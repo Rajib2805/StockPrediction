@@ -198,7 +198,7 @@ def comparison():
         dfff = pd.DataFrame({
            "name": symb_list,
             st.write(symb_list)
-           #"close": raw_df['Close'].tolist()})
+           #"close": raw_df[['Close']].tolist()})
         
         #Calling the data which is set above 
         st.dataframe(dfff,
