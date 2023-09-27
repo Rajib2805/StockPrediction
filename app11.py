@@ -69,7 +69,7 @@ def main():
 
 def about():
     st.subheader("About")
-    st.markdown('<p class="big-font">This is a complete stock analysis app.<br> Thanks!</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">This is a complete stock analysis app.<br> Thanks!</p>')
     st.subheader('Developed by Rajib Kumar Tah')
 
 
