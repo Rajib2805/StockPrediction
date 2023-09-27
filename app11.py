@@ -76,7 +76,7 @@ def about():
     st.subheader("About")
     st.subheader('Developed by Rajib Kumar Tah')
 
-    
+    import random
     df = pd.DataFrame({
         "name": ["Roadmap", "Extras", "Issues"],
         "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
