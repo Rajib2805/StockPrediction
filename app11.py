@@ -62,8 +62,11 @@ def main():
         predict()
     elif option == 'Prediction Chart':
         predictionchart()
-    else:
+    elif option == 'Contact Us':
         contact_us()
+    
+    #else:
+        #contact_us()
     
 
 
