@@ -94,20 +94,6 @@ def about():
 
 
 
-
-    ###Modified
-    df = pd.DataFrame({
-        "name": symb_list,
-        "chart": df['Close'].tolist()})
-        
-    st.write(df)
-    #Calling the data which is set above 
-    st.dataframe(df,
-    column_config={
-        "name": "App name",
-        "chart": st.column_config.LineChartColumn("Close"), }, hide_index=True,)
-        
-    
     return()
 
 
