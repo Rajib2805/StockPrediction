@@ -193,12 +193,12 @@ def comparison():
              "stars": st.column_config.NumberColumn("Github Stars", help="Number of stars on GitHub", format="%d ⭐",),
             "views_history": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
 
-
+        st.write(symb_list)
         ### revised
         dfff = pd.DataFrame({
            "name": symb_list,
             st.write(symb_list)
-           "close": raw_df['Close'].tolist()})
+           #"close": raw_df['Close'].tolist()})
         st.write(dfff)
         #Calling the data which is set above 
         st.dataframe(dfff,
