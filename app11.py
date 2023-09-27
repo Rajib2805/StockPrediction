@@ -97,7 +97,7 @@ def about():
 
     ###Modified
     #Calling the data which is set above 
-    st.dataframe(data,
+    st.dataframe(data.Close,
     column_config={
         "name": "App name",
         "views_history": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
