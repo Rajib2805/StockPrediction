@@ -70,6 +70,7 @@ def main():
 def about():
     st.subheader("About")
     st.subheader('Developed by Rajib Kumar Tah')
+    return()
 
 
 
