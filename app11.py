@@ -195,14 +195,12 @@ def comparison():
 
         ### revised
         dfff = pd.DataFrame({
-           "name": symb_list,
-            "close": download_data(symb_list, start_date, end_date)['Adj Close'].tolist()})
+              "close": download_data(symb_list, start_date, end_date)['Adj Close'].tolist()})
         
         #Calling the data which is set above 
         st.dataframe(dfff,
             column_config={
-            "name": "App name",
-            "close": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
+                 "close": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
          
 
        
