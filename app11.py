@@ -97,7 +97,7 @@ def about():
 
     ###Modified
     df = pd.DataFrame({
-        "name": df['Date'].tolist(),
+        "name": symb_list,
         "chart": df['Close'].tolist()})
         
     st.write(df)
