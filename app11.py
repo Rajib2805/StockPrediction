@@ -44,6 +44,8 @@ st.sidebar.divider()
 with st.sidebar:
     st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
     
+st.sidebar.write(":heavy_minus_sign:" * 9) # horizontal separator line. Just change 34 as needed
+
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below', icon = "🔥")
 st.sidebar.info("Created and designed by Rajib Kumar Tah", icon="🤖")
 
@@ -97,7 +99,6 @@ for i in tickers:  # for each asset selected
 
 option = st.selectbox('Select the stock', symb_list) #['RELIANCE.NS', 'ITC.NS','BEL.NS']
 st.write("---") #It is the same as st.divider()
-st.write(":heavy_minus_sign:" * 9) # horizontal separator line. Just change 34 as needed.
 
 option = option.upper()
 today = datetime.date.today()
