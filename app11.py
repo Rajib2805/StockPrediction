@@ -195,7 +195,7 @@ def comparison():
 
         ### revised
         dfff = pd.DataFrame({
-             "Date": download_data(symb_list, start_date, end_date)['Date'].tolist()})
+             "Date": download_data(symb_list, start_date, end_date)['Date'].tolist()),
               "close": download_data(symb_list, start_date, end_date)['Adj Close'].tolist()})
         
         #Calling the data which is set above 
