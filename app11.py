@@ -210,7 +210,7 @@ def comparison():
               st.line_chart(closingPrice)  # display line chart
             # display volume of selected assets
             with col3:
-              st.write("### Volume)
+              st.write("### Volume")
               st.line_chart(volume)  # display line chart
 
         elif (dropdown1) == 'Area Chart':  # if user selects 'Area Chart'
