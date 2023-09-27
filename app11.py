@@ -108,10 +108,10 @@ before = today - datetime.timedelta(days=duration)
 col1, col2 = st.sidebar.columns(2)
 with col1:
    st.header("A cat")
-   st.sidebar.date_input('Start Date', value=before)
+   st.date_input('Start Date', value=before)
 with col2:
    st.header("A rat")
-   st.sidebar.date_input('End Date', today)
+   st.date_input('End Date', today)
 
 
 #start_date = st.sidebar.date_input('Start Date', value=before)
