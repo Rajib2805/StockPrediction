@@ -56,7 +56,7 @@ def main():
     #option = st.sidebar.selectbox('Make a choice', ['About', 'Visualize', 'Comparison', 'Recent Data', 'Predict', 'Prediction Chart', 'Visualize by yourself', 'Contact Us'])
     tab1, tab2 = st.tabs(['About', 'Visualize', 'Comparison', 'Recent Data', 'Predict', 'Prediction Chart', 'Visualize by yourself', 'Contact Us'])
     if option == 'About':
-        tab1.about()
+        about()
     if option == 'Visualize':
         tech_indicators()
     elif option == 'Comparison':
