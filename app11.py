@@ -160,23 +160,27 @@ def comparison():
         cumret = cumret.fillna(0)  # fill NaN values with 0
         return cumret  # return cumulative return
 
+    
     if len(dropdown) > 0:  # if user selects atleast one asset
+        #Relative return code
         df = relativeret(download_data(symb_list, start_date, end_date))['Adj Close']  # download data from yfinance
         raw_df = relativeret(download_data(symb_list, start_date, end_date))
         raw_df.reset_index(inplace=True)  # reset index
-
+        #Closing price code
         closingPrice = download_data(symb_list, start_date, end_date)['Adj Close']  # download data from yfinance
+        #Volume code
         volume = download_data(symb_list, start_date, end_date)['Volume']
-        
+
+        #Dropdown for selecting type of chart within the above list of stocks selcted for comparison
         st.subheader('Raw Data {}'.format(dropdown))
         chart = ('Line Chart', 'Area Chart', 'Bar Chart')  # chart types
-        # dropdown for selecting chart type
         dropdown1 = st.selectbox('Pick your chart', chart)
         with st.spinner('Loading...'):  # spinner while loading
             time.sleep(2)
 
         st.subheader('Relative Returns {}'.format(dropdown))
-                
+        #Type of chart dropdown conditions. Note that this if condition is indented within the above if condition suggesting that
+        #this is a selection within the above selection     
         if (dropdown1) == 'Line Chart':  # if user selects 'Line Chart'
             st.line_chart(df)  # display line chart
             # display closing price of selected assets
