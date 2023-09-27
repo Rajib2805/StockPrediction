@@ -176,17 +176,17 @@ def comparison():
         #Volume code
         volume = download_data(symb_list, start_date, end_date)['Volume']
 
-        '''
+        
         ### Original
         import random
-        df = pd.DataFrame({
+        dfff = pd.DataFrame({
            "name": ["Roadmap", "Extras", "Issues"],
            "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
             "stars": [random.randint(0, 1000) for _ in range(3)],
             "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],})
-        st.write(df)
+        st.write(dfff)
         #Calling the data which is set above 
-        st.dataframe(df,
+        st.dataframe(dfff,
             column_config={
             "name": "App name",
             "url": st.column_config.LinkColumn("App URL"),
