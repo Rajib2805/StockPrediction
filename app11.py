@@ -97,15 +97,15 @@ def about():
 
     ###Modified
     df = pd.DataFrame({
-        "name": ["Stock"],
-        "chart": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],})
+        "name": df['Date'].tolist(),
+        "chart": df['Close'].tolist()})
         
     st.write(df)
     #Calling the data which is set above 
     st.dataframe(df,
     column_config={
         "name": "App name",
-        "url": st.column_config.LinkColumn("App URL"),})
+        "chart": st.column_config.LineChartColumn("Close"), hide_index=True,})
         
     
     return()
