@@ -49,7 +49,7 @@ st.sidebar.info("Created and designed by Rajib Kumar Tah")
 
 
 def main():
-    option = st.sidebar.selectbox('Make a choice', ['About', 'Visualize', 'Comparison', 'Recent Data', 'Predict', 'Prediction Chart', 'Visualize by yourself', 'Contact Us'])
+    option = st.selectbox('Make a choice', ['About', 'Visualize', 'Comparison', 'Recent Data', 'Predict', 'Prediction Chart', 'Visualize by yourself', 'Contact Us'])
     if option == 'About':
         about()
     if option == 'Visualize':
