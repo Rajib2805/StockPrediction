@@ -65,11 +65,7 @@ def main():
     elif option == 'Contact Us':
         contact_us()
     
-    #else:
-        #contact_us()
-    
-
-
+     
 def about():
     st.subheader("About")
     st.subheader('Developed by Rajib Kumar Tah')
