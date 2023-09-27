@@ -197,15 +197,20 @@ def comparison():
         st.subheader('Relative Returns {}'.format(dropdown))
         #Type of chart dropdown conditions. Note that this if condition is indented within the above if condition suggesting that
         #this is a selection within the above selection     
-        if (dropdown1) == 'Line Chart':  # if user selects 'Line Chart'
-            st.line_chart(df)  # display line chart
-            # display closing price of selected assets
-            st.write("### Closing Price of {}".format(dropdown))
-            st.line_chart(closingPrice)  # display line chart
 
+        col1, col2, col3 = st.columns(3)
+        if (dropdown1) == 'Line Chart':  # if user selects 'Line Chart'
+            # display relative comparison chart of the selected assets
+            with col1:
+              st.line_chart(df)  # display line chart
+            # display closing price of selected assets
+            with col2:
+              st.write("### Closing Price of {}".format(dropdown))
+              st.line_chart(closingPrice)  # display line chart
             # display volume of selected assets
-            st.write("### Volume of {}".format(dropdown))
-            st.line_chart(volume)  # display line chart
+            with col3:
+              st.write("### Volume of {}".format(dropdown))
+              st.line_chart(volume)  # display line chart
 
         elif (dropdown1) == 'Area Chart':  # if user selects 'Area Chart'
             st.area_chart(df)  # display area chart
