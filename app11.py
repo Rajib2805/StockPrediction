@@ -196,6 +196,9 @@ def comparison():
         #Volume code
         volume = download_data(symb_list, start_date, end_date)['Volume']
 
+
+       
+
         #Dropdown for selecting type of chart within the above list of stocks selcted for comparison
         st.subheader('Raw Data {}'.format(dropdown))
         chart = ('Line Chart', 'Area Chart', 'Bar Chart')  # chart types
