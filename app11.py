@@ -105,8 +105,17 @@ duration = st.sidebar.slider('Enter number of months to analyse:', 0,60,12) #Thi
 duration = duration *30
 st.sidebar.write('Number of days from today:', int(duration/30),'months')
 before = today - datetime.timedelta(days=duration)
-start_date = st.sidebar.date_input('Start Date', value=before)
-end_date = st.sidebar.date_input('End date', today)
+col1, col2 = st.columns(2)
+with col1:
+   st.header("A cat")
+   st.sidebar.date_input('Start Date', value=before)
+with col2:
+   st.header("A rat")
+   st.sidebar.date_input('End Date', today)
+
+
+#start_date = st.sidebar.date_input('Start Date', value=before)
+#end_date = st.sidebar.date_input('End date', today)
 
 if st.sidebar.button('Run'):
     if start_date < end_date:
