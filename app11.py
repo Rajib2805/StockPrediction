@@ -194,10 +194,10 @@ def comparison():
         with st.spinner('Loading...'):  # spinner while loading
             time.sleep(2)
 
-        st.subheader('Relative Returns {}'.format(dropdown))
+        st.subheader('Comparison of  {}'.format(dropdown))
         #Type of chart dropdown conditions. Note that this if condition is indented within the above if condition suggesting that
         #this is a selection within the above selection     
-
+        
         col1, col2, col3 = st.columns(3)
         if (dropdown1) == 'Line Chart':  # if user selects 'Line Chart'
             # display relative comparison chart of the selected assets
