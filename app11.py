@@ -44,7 +44,7 @@ st.sidebar.divider()
 with st.sidebar:
     st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
     
-st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
+st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below', icon = "🔥")
 st.sidebar.info("Created and designed by Rajib Kumar Tah", icon="ℹ️")
 
 
