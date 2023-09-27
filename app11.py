@@ -105,7 +105,7 @@ def about():
     st.dataframe(df,
     column_config={
         "name": "App name",
-        "chart": st.column_config.LineChartColumn("Close"), hide_index=True,})
+        "chart": st.column_config.LineChartColumn("Close"), }, hide_index=True,)
         
     
     return()
