@@ -96,13 +96,8 @@ def about():
 
 
     ###Modified
-    import random
-    df = pd.DataFrame({
-        "name": ["Roadmap", "Extras", "Issues"],
-        "views_history": df[['Close', 'Volume']],})
-    
     #Calling the data which is set above 
-    st.dataframe(df,
+    st.dataframe(data,
     column_config={
         "name": "App name",
         "views_history": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
