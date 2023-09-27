@@ -50,6 +50,7 @@ st.sidebar.info("Created and designed by Rajib Kumar Tah")
 
 def main():
     option = st.selectbox('Make a choice', ['About', 'Visualize', 'Comparison', 'Recent Data', 'Predict', 'Prediction Chart', 'Visualize by yourself', 'Contact Us'])
+    st.divider()
     if option == 'About':
         about()
     if option == 'Visualize':
