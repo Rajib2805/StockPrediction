@@ -111,10 +111,8 @@ before = today - datetime.timedelta(days=duration)
 
 col1, col2 = st.columns(2)
 with col1:
-   st.header("A cat")
    start_date = st.date_input('Start Date', value=before)
 with col2:
-   st.header("A rat")
    end_date = st.date_input('End Date', today)
 
 if st.button('Run'):
