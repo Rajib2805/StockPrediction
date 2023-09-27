@@ -199,7 +199,7 @@ def comparison():
            "name": symb_list,
             st.write(symb_list)
            #"close": raw_df['Close'].tolist()})
-        st.write(dfff)
+        
         #Calling the data which is set above 
         st.dataframe(dfff,
             column_config={
