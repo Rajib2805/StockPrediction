@@ -95,21 +95,21 @@ for i in tickers:  # for each asset selected
         val = dict_csv.get(i)  # get symbol from csv file
         symb_list.append(val)  # append symbol to list
 
-option = st.sidebar.selectbox('Select the stock', symb_list) #['RELIANCE.NS', 'ITC.NS','BEL.NS']
-st.sidebar.write(":heavy_minus_sign:" * 9) # horizontal separator line. Just change 34 as needed.
+option = st.selectbox('Select the stock', symb_list) #['RELIANCE.NS', 'ITC.NS','BEL.NS']
+st.write(":heavy_minus_sign:" * 9) # horizontal separator line. Just change 34 as needed.
 
 option = option.upper()
 today = datetime.date.today()
 #duration = st.sidebar.number_input('Enter no. of days from today', value= 365) #This is a manual input system
-duration = st.sidebar.slider('Enter number of months to analyse:', 0,60,12) #This is a slider input system
+duration = st.slider('Enter number of months to analyse:', 0,60,12) #This is a slider input system
 duration = duration *30
-st.sidebar.write('Number of days from today:', int(duration/30),'months')
+st.write('Number of days from today:', int(duration/30),'months')
 before = today - datetime.timedelta(days=duration)
 
 #start_date = st.sidebar.date_input('Start Date', value=before) # This was to show the inputs side by side
 #end_date = st.sidebar.date_input('End date', today) # This was to show the inputs side by side
 
-col1, col2 = st.sidebar.columns(2)
+col1, col2 = st.columns(2)
 with col1:
    st.header("A cat")
    start_date = st.date_input('Start Date', value=before)
@@ -117,12 +117,12 @@ with col2:
    st.header("A rat")
    end_date = st.date_input('End Date', today)
 
-if st.sidebar.button('Run'):
+if st.button('Run'):
     if start_date < end_date:
-        st.sidebar.success('Start date: `%s`\n\nEnd date: `%s`' %(start_date, end_date))
+        st.success('Start date: `%s`\n\nEnd date: `%s`' %(start_date, end_date))
         download_data(option, start_date, end_date)
     else:
-        st.sidebar.error('Error: End date must fall after start date')
+        st.error('Error: End date must fall after start date')
 
 #####################################################################################
 # CALLING THE FUNCTION download_data TO DOWNLOAD DATA
