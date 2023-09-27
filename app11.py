@@ -213,24 +213,32 @@ def comparison():
               st.line_chart(volume)  # display line chart
 
         elif (dropdown1) == 'Area Chart':  # if user selects 'Area Chart'
-            st.area_chart(df)  # display area chart
+            # display relative comparison chart of the selected assets
+            st.write("### Relative return")
+            st.area_chart(df)  # display line chart
             # display closing price of selected assets
-            st.write("### Closing Price of {}".format(dropdown))
-            st.area_chart(closingPrice)  # display area chart
-            '''
+            col1, col2 = st.columns(2)
+            with col1:
+              st.write("### Closing Price")
+              st.area_chart(closingPrice)  # display line chart
             # display volume of selected assets
-            st.write("### Volume of {}".format(dropdown))
-            st.area_chart(volume)  # display area chart
-            '''
+            with col2:
+              st.write("### Volume")
+              st.area_chart(volume)  # display line chart
+                
         elif (dropdown1) == 'Bar Chart':  # if user selects 'Bar Chart'
-            st.bar_chart(df)  # display bar chart
+            # display relative comparison chart of the selected assets
+            st.write("### Relative return")
+            st.bar_chart(df)  # display line chart
             # display closing price of selected assets
-            st.write("### Closing Price of {}".format(dropdown))
-            st.bar_chart(closingPrice)  # display bar chart
-
+            col1, col2 = st.columns(2)
+            with col1:
+              st.write("### Closing Price")
+              st.bar_chart(closingPrice)  # display line chart
             # display volume of selected assets
-            st.write("### Volume of {}".format(dropdown))
-            st.bar_chart(volume)  # display bar chart
+            with col2:
+              st.write("### Volume")
+              st.bar_chart(volume)  # display line chart
 
         else:
             st.line_chart(df, width=1000, height=800, use_container_width=False)  # display line chart
