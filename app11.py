@@ -37,8 +37,8 @@ st.title('Stock Market Dashboard')
 #st.Image("https://www.pexels.com/photo/close-up-photo-of-monitor-159888/")
 img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 img = img.resize((400,300))
-st.image(img)
-st.divider()
+st.sidebar.image(img)
+st.sidebar.divider()
 
 #Lottie file for streamlit animation
 with st.sidebar:
