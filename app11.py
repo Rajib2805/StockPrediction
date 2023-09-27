@@ -30,7 +30,7 @@ from sklearn.preprocessing import MinMaxScaler
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
 # THE MAIN MENU ARE LINKED TO 
-[theme]
+#[theme]
 base="dark"
 primaryColor="purple"
 
