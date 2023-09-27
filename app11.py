@@ -200,7 +200,7 @@ def comparison():
         #Calling the data which is set above 
         st.dataframe(dfff,
             column_config={
-                 "close": st.column_config.LineChartColumn("Views (past 30 days)", }, hide_index=True,)
+                 "close": st.column_config.LineChartColumn("Views (past 30 days)"), }, hide_index=True,)
          
 
        
