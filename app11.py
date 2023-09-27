@@ -162,7 +162,7 @@ def comparison():
 
     
     if len(dropdown) > 0:  # if user selects atleast one asset
-        #Relative return code
+        #Calling the above Relative return function
         df = relativeret(download_data(symb_list, start_date, end_date))['Adj Close']  # download data from yfinance
         raw_df = relativeret(download_data(symb_list, start_date, end_date))
         raw_df.reset_index(inplace=True)  # reset index
