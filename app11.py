@@ -202,15 +202,15 @@ def comparison():
         if (dropdown1) == 'Line Chart':  # if user selects 'Line Chart'
             # display relative comparison chart of the selected assets
             with col1:
-              st.write("### Relative return of {}".format(dropdown))
+              st.write("### Relative return")
               st.line_chart(df)  # display line chart
             # display closing price of selected assets
             with col2:
-              st.write("### Closing Price of {}".format(dropdown))
+              st.write("### Closing Price")
               st.line_chart(closingPrice)  # display line chart
             # display volume of selected assets
             with col3:
-              st.write("### Volume of {}".format(dropdown))
+              st.write("### Volume)
               st.line_chart(volume)  # display line chart
 
         elif (dropdown1) == 'Area Chart':  # if user selects 'Area Chart'
