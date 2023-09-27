@@ -196,7 +196,7 @@ def comparison():
         ### revised
         dfff = pd.DataFrame({
            "name": symb_list,
-            "close": closingPrice['Volume'].tolist()})
+            "close": closingPrice['Adj Close']})
         
         #Calling the data which is set above 
         st.dataframe(dfff,
