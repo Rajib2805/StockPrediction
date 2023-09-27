@@ -195,10 +195,12 @@ def comparison():
 
         ### revised
         dfff = pd.DataFrame({
+             "Date": download_data(symb_list, start_date, end_date)['Date'].tolist()})
               "close": download_data(symb_list, start_date, end_date)['Adj Close'].tolist()})
         
         #Calling the data which is set above 
         st.dataframe(dfff,
+            Date : st.column_config.LinkColumn("Date")
             column_config={
                  "close": st.column_config.LineChartColumn("Views (past 30 days)"), }, hide_index=True,)
          
