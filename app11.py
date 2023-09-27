@@ -198,18 +198,17 @@ def comparison():
         #Type of chart dropdown conditions. Note that this if condition is indented within the above if condition suggesting that
         #this is a selection within the above selection     
         
-        col1, col2, col3 = st.columns(3)
         if (dropdown1) == 'Line Chart':  # if user selects 'Line Chart'
             # display relative comparison chart of the selected assets
-            with col1:
-              st.write("### Relative return")
-              st.line_chart(df)  # display line chart
+            st.write("### Relative return")
+            st.line_chart(df)  # display line chart
             # display closing price of selected assets
-            with col2:
+            col1, col2 = st.columns(2)
+            with col1:
               st.write("### Closing Price")
               st.line_chart(closingPrice)  # display line chart
             # display volume of selected assets
-            with col3:
+            with col2:
               st.write("### Volume")
               st.line_chart(volume)  # display line chart
 
