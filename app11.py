@@ -195,7 +195,7 @@ def comparison():
             "views_history": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
  
 
-        st.write(df.head())
+        st.write(df['Date'])
         xx = []  # list for storing symbols
         for i in dropdown:  # for each asset selected
             val = df.get(i)  # get symbol from csv file
