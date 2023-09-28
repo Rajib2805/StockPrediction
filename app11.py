@@ -199,6 +199,12 @@ def comparison():
            "chart": [[random.randint(0, 5000) for _ in range(30)] for _ in range(2)]})
         
         st.write(aa)
+
+        #Calling the data which is set above 
+        st.dataframe(aa,
+            column_config={
+            "Stock": "Stock",
+            "chart": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
         
        
 
