@@ -201,7 +201,7 @@ def comparison():
             val = df.get(i)  # get symbol from csv file
             xx.append(val)  # append symbol to list
 
-
+        st.write(xx)
 
 
 
