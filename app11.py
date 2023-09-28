@@ -194,7 +194,9 @@ def comparison():
              "stars": st.column_config.NumberColumn("Github Stars", help="Number of stars on GitHub", format="%d ⭐",),
             "views_history": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
  
-        st.write(symb_list)
+        aa = pd.DataFrame({
+           "name": symb_list})
+        st.write(aa)
         
        
 
