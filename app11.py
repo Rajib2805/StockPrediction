@@ -176,7 +176,7 @@ def comparison():
         #Volume code
         volume = download_data(symb_list, start_date, end_date)['Volume']
 
-        st.write(df)
+        st.write(df.T)
         
         ### Original
         import random
