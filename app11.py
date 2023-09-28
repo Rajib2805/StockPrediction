@@ -215,6 +215,7 @@ def comparison():
         for i in dfchange.columns:  # for each asset selected
            val = dfchange.get(i)  # get symbol from csv file
            ccc.append(val)  # append symbol to list
+           ccc.tolist()
         st.write(ccc)
 
            
