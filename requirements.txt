@@ -18,4 +18,3 @@ pylottie
 tensorflow
 keras
 IPython
-base64
