@@ -195,7 +195,36 @@ def comparison():
  
 
         
-        st.column_config.LineChartColumn(("dddd", y_min=0, y_max=5000), hide_index=True)
+        import plotly.graph_objs as go
+
+        # Sample stock data (you can replace this with your own data source)
+        stock_data = {
+            'Date': pd.date_range(start='2023-01-01', periods=30, freq='D'),
+            'AAPL': [150.0, 151.2, 152.3, 153.5, 154.7, 155.0, 156.2, 155.8, 155.3, 154.5, 153.8, 153.0, 152.4, 152.9, 153.5, 154.0, 154.6, 155.2, 156.0, 155.5, 154.9, 154.2, 153.7, 153.1, 152.6, 152.0, 151.4, 150.8, 150.3, 149.7],
+            'GOOGL': [2600.0, 2620.0, 2635.0, 2630.0, 2640.0, 2650.0, 2660.0, 2670.0, 2680.0, 2690.0, 2700.0, 2710.0, 2720.0, 2730.0, 2740.0, 2750.0, 2760.0, 2770.0, 2780.0, 2790.0, 2800.0, 2810.0, 2820.0, 2830.0, 2840.0, 2850.0, 2860.0, 2870.0, 2880.0, 2890.0]
+            }
+
+        # Create a DataFrame
+        df = pd.DataFrame(stock_data)
+        df.set_index('Date', inplace=True)
+
+        # Streamlit app
+        st.title("Stock Sparklines")
+
+        # Dropdown for selecting a stock
+        selected_stock = st.selectbox("Select a stock", df.columns)
+
+        # Sparkline chart
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=df.index, y=df[selected_stock], mode='lines', name=selected_stock))
+        fig.update_layout(
+            title=f"{selected_stock} Stock Price",
+            xaxis_title="Date",
+            yaxis_title="Price",
+                  )
+
+        st.plotly_chart(fig)
+
  
         
        
