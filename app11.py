@@ -197,7 +197,7 @@ def comparison():
             
         
         dfchange= df
-        dfchange = dfchange. loc[:, dfchange. columns != dfchange.index]
+        dfchange = dfchange(index=False)
         st.write(dfchange)
         ccc = []  # list for storing symbols
         for i in dfchange.columns:  # for each asset selected
