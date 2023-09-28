@@ -200,6 +200,7 @@ def comparison():
 
         dfchange= df
         dfchange = df. loc[:, df. columns != "Date"]
+        st.write(dfchange)
         ccc = []  # list for storing symbols
         for i in dfchange.columns:  # for each asset selected
            val = dfchange.get(i)  # get symbol from csv file
