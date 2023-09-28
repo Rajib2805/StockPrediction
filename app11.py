@@ -208,31 +208,6 @@ def comparison():
 
         
         
-        dfchange= df
-        dfchange = dfchange.reset_index(drop=True)
-        dfchange = dfchange.tolist()
-        st.write(dfchange)
-        ccc = []  # list for storing symbols
-        for i in dfchange.columns:  # for each asset selected
-           val = dfchange.get(i)  # get symbol from csv file
-           ccc.append(val)  # append symbol to list
-           ccc.tolist()
-        st.write(ccc)
-
-           
-        ### Revised
-        aa = pd.DataFrame({
-           "Stock": symb_list,
-           #"chart": [[random.randint(0, 5000) for _ in range(30)] for _ in range(2)]})
-           "chart": ccc })
-            
-        st.write(aa)
-
-        #Calling the data which is set above 
-        st.dataframe(aa,
-            column_config={
-            "Stock": "Stock",
-            "chart": st.column_config.LineChartColumn("Chart", y_min=0, y_max=5000),}, hide_index=True,)
         
        
 
