@@ -197,6 +197,20 @@ def comparison():
         st.write(df)
         
         arrays = np.array_split(df.values, 2)
+
+
+        ccc = []  # list for storing symbols
+        for i in df.columns:  # for each asset selected
+           val = df.get(i)  # get symbol from csv file
+           ccc.append(val)  # append symbol to list
+        st.write(ccc)
+
+
+
+
+
+
+
         
         ### Revised
         aa = pd.DataFrame({
