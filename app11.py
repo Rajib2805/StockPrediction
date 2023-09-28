@@ -451,7 +451,7 @@ def predictionchart():
     #st.plotly_chart(fig, theme=None)
 
            
-    def model_engine(model, num):
+def model_engine(model, num):
         # getting only the closing price
         df = data[['Close']]
         # shifting the closing price based on number of days forecast
