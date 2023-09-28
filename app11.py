@@ -27,6 +27,7 @@ from keras.models import Sequential
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from io import BytesIO
+from IPython.display import display, HTML
 
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
