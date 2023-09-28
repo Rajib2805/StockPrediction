@@ -203,7 +203,8 @@ def comparison():
         for col in df.columns:
             st.write(col.values)
 
-
+         for index, row in df.iterrows():
+              print(row['age'])
         
 
         
