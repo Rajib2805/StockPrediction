@@ -195,7 +195,7 @@ def comparison():
             "views_history": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
  
         st.write(symb_list)
-        st.write(name)
+        
        
 
         #Dropdown for selecting type of chart within the above list of stocks selcted for comparison
