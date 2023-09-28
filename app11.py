@@ -177,6 +177,8 @@ def comparison():
         volume = download_data(symb_list, start_date, end_date)['Volume']
 
         st.write(df.T)
+        row_list = df.values.flatten().tolist()
+        st.write(row_list)
         
         ### Original
         import random
