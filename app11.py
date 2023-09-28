@@ -200,9 +200,9 @@ def comparison():
         
         #Calling the data which is set above 
         st.dataframe(dfff,
-            Date : st.column_config.LinkColumn("Date")
-            column_config={
-                 "close": st.column_config.LineChartColumn("Views (past 30 days)"), }, hide_index=True,)
+                     column_config = {
+            "Date" : st.column_config.LinkColumn("Date"),
+            "close": st.column_config.LineChartColumn("Views (past 30 days)"), }, hide_index=True,)
          
 
        
