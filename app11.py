@@ -177,7 +177,10 @@ def comparison():
         volume = download_data(symb_list, start_date, end_date)['Volume']
 
         
-        
+        a = df.ix[:, 0:100]
+        df_out = pd.DataFrame()
+        df_out['sparkline'] = sparklines.create(data=a)
+        st.write(sparklines.show(df_out[['sparkline']]))
 
         
         
