@@ -200,7 +200,7 @@ def comparison():
         for i in df.columns:  # for each asset selected
             val = df.get(i)  # get symbol from csv file
             xx.append(val)  # append symbol to list
-            xx.tolist()
+            
         st.write(xx)
 
 
