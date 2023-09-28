@@ -177,10 +177,7 @@ def comparison():
         volume = download_data(symb_list, start_date, end_date)['Volume']
 
         
-        a = df.ix[:, 0:100]
-        df_out = pd.DataFrame()
-        df_out['sparkline'] = sparklines.create(data=a)
-        st.write(sparklines.show(df_out[['sparkline']]))
+        
 
         
         
@@ -455,6 +452,30 @@ def model_engine(model, num):
     for i in forecast_pred:
         st.text(f'Day {day}: {i}')
         day += 1
+
+def sparkline(data, figsize=(4, 0.25), **kwags):
+    """
+    Returns a HTML image tag containing a base64 encoded sparkline style plot
+    """
+    data = list(data)
+    
+    fig, ax = plt.subplots(1, 1, figsize=figsize, **kwags)
+    ax.plot(data)
+    for k,v in ax.spines.items():
+        v.set_visible(False)
+    ax.set_xticks([])
+    ax.set_yticks([])    
+
+    plt.plot(len(data) - 1, data[len(data) - 1], 'r.')
+
+    ax.fill_between(range(len(data)), data, len(data)*[min(data)], alpha=0.1)
+    
+    img = BytesIO()
+    plt.savefig(img)
+    img.seek(0)
+    plt.close()
+    return '<img src="data:image/png;base64,{}"/>'.format(base64.b64encode(img.read()).decode())
+
 
 def contact_us():
     #Form submit template
