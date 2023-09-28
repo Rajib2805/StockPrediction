@@ -452,35 +452,35 @@ def predictionchart():
 
            
 def model_engine(model, num):
-        # getting only the closing price
-        df = data[['Close']]
-        # shifting the closing price based on number of days forecast
-        df['preds'] = data.Close.shift(-num)
-        # scaling the data
-        x = df.drop(['preds'], axis=1).values
-        x = scaler.fit_transform(x)
-        # storing the last num_days data
-        x_forecast = x[-num:]
-        # selecting the required values for training
-        x = x[:-num]
-        # getting the preds column
-        y = df.preds.values
-        # selecting the required values for training
-        y = y[:-num]
+    # getting only the closing price
+    df = data[['Close']]
+    # shifting the closing price based on number of days forecast
+    df['preds'] = data.Close.shift(-num)
+    # scaling the data
+    x = df.drop(['preds'], axis=1).values
+    x = scaler.fit_transform(x)
+    # storing the last num_days data
+    x_forecast = x[-num:]
+    # selecting the required values for training
+    x = x[:-num]
+    # getting the preds column
+    y = df.preds.values
+    # selecting the required values for training
+    y = y[:-num]
 
-        #spliting the data
-        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.2, random_state=7)
-        # training the model
-        model.fit(x_train, y_train)
-        preds = model.predict(x_test)
-        st.text(f'r2_score: {r2_score(y_test, preds)} \
-                \nMAE: {mean_absolute_error(y_test, preds)}')
-        # predicting stock price based on the number of days
-        forecast_pred = model.predict(x_forecast)
-        day = 1
-        for i in forecast_pred:
-            st.text(f'Day {day}: {i}')
-            day += 1
+    #spliting the data
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.2, random_state=7)
+    # training the model
+    model.fit(x_train, y_train)
+    preds = model.predict(x_test)
+    st.text(f'r2_score: {r2_score(y_test, preds)} \
+            \nMAE: {mean_absolute_error(y_test, preds)}')
+    # predicting stock price based on the number of days
+    forecast_pred = model.predict(x_forecast)
+    day = 1
+    for i in forecast_pred:
+        st.text(f'Day {day}: {i}')
+        day += 1
 
 def contact_us():
     #Form submit template
