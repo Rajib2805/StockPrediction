@@ -179,7 +179,7 @@ def comparison():
         #Volume code
         volume = download_data(symb_list, start_date, end_date)['Volume']
 
-        dfstack= df.stack()
+        dfstack= stock_df.stack()
         dfstack = dfstack.to_frame()
         
         #dfstack= dfstack.reset_index(level=0, inplace=True)
