@@ -185,7 +185,7 @@ def comparison():
         dfstack= closingPrice.stack()
         dfstack = dfstack.to_frame()
         dfstack= dfstack.reset_index(inplace=True)
-        st.write(dfstack.head())
+        st.write(dfstack)
         
         rates = dfstack.groupby(dfstack.columns[1]).aggregate({dfstack.columns[2]: sparkline})
         st.write(rates)
