@@ -177,6 +177,7 @@ def comparison():
         volume = download_data(symb_list, start_date, end_date)['Volume']
 
         dfstack= df.stack()
+        dfstack = dfstack.to_frame()
         st.write(dfstack)
         rates = dfstack.groupby(dfstack.columns[0]).aggregate({dfstack.columns[1]: sparkline})
         HTML(rates.to_html(escape=False))
