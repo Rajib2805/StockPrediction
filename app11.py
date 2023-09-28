@@ -193,18 +193,7 @@ def comparison():
              "stars": st.column_config.NumberColumn("Github Stars", help="Number of stars on GitHub", format="%d ⭐",),
             "views_history": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
  
-        ### revised
-        dfff = pd.DataFrame({
-             "Symbol": symb_list,
-              #"close": [[download_data(symb_list, start_date, end_date)['Adj Close'].tolist()] for _ in range(2)],  })
-              "close": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],})
         
-        #Calling the data which is set above 
-        st.dataframe(dfff,
-                     column_config = {
-            "Symbol" : st.column_config.LinkColumn("XX"),
-            "close": st.column_config.LineChartColumn("Views (past 30 days)"), }, hide_index=True,)
-         
 
        
 
