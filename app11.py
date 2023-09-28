@@ -185,7 +185,7 @@ def comparison():
             "stars": [random.randint(0, 1000) for _ in range(3)],
             "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],})
         
-        
+        st.write(dfff)
         #Calling the data which is set above 
         st.dataframe(dfff,
             column_config={
@@ -194,7 +194,19 @@ def comparison():
              "stars": st.column_config.NumberColumn("Github Stars", help="Number of stars on GitHub", format="%d ⭐",),
             "views_history": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
  
-            
+
+
+
+
+
+
+
+
+
+
+        
+
+        
         
         dfchange= df
         dfchange = dfchange.reset_index(drop=True)
@@ -205,13 +217,7 @@ def comparison():
            ccc.append(val)  # append symbol to list
         st.write(ccc)
 
-
-
-
-
-
-
-        
+           
         ### Revised
         aa = pd.DataFrame({
            "Stock": symb_list,
