@@ -198,10 +198,11 @@ def comparison():
         
         arrays = np.array_split(df.values, 2)
 
-
+        dfchange= df
+        dfchange = df. loc[:, df. columns != "Date"]
         ccc = []  # list for storing symbols
-        for i in df.columns:  # for each asset selected
-           val = df.get(i)  # get symbol from csv file
+        for i in dfchange.columns:  # for each asset selected
+           val = dfchange.get(i)  # get symbol from csv file
            ccc.append(val)  # append symbol to list
         st.write(ccc)
 
