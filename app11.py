@@ -200,7 +200,8 @@ def comparison():
         for col in df.columns:
              st.write(col)
 
-
+        for col in df.columns:
+            st.write(col.values)
 
 
         
