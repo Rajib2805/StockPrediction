@@ -197,7 +197,9 @@ def comparison():
         aa = pd.DataFrame({
            "Stock": symb_list})
         st.write(aa)
-        
+
+        closingPrice = download_data(symb_list, start_date, end_date)['Adj Close']
+        st.write(closingPrice)
        
 
         #Dropdown for selecting type of chart within the above list of stocks selcted for comparison
