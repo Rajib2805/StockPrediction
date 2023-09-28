@@ -196,7 +196,7 @@ def comparison():
  
         aa = pd.DataFrame({
            "Stock": symb_list,
-           "chart": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)]})
+           "chart": [[random.randint(0, 5000) for _ in range(30)] for _ in range(2)]})
         
         st.write(aa)
         
