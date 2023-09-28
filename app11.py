@@ -187,8 +187,8 @@ def comparison():
         #dfstack= dfstack.reset_index(inplace=True)
         st.write(dfstack)
         
-        rates = dfstack.groupby(dfstack.columns[1]).aggregate({dfstack.columns[2]: sparkline})
-        st.write(rates)
+        #rates = dfstack.groupby(dfstack.columns[1]).aggregate({dfstack.columns[2]: sparkline})
+        #st.write(rates)
         #HTML(rates.to_html(escape=False))
         
         
