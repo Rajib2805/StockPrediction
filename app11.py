@@ -200,7 +200,7 @@ def comparison():
 
         closingPrice = download_data(symb_list, start_date, end_date)['Adj Close']
         xx= closingPrice
-        xx = closingPrice.{}".format(symb_list).values.tolist()
+        xx = closingPrice.format(symb_list).values.tolist()
         st.write(xx)
        
 
