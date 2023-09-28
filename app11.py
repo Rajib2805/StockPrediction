@@ -197,7 +197,7 @@ def comparison():
 
         st.write(df.columns)
         xx = []  # list for storing symbols
-        for i in dropdown:  # for each asset selected
+        for i in df.columns:  # for each asset selected
             val = df.get(i)  # get symbol from csv file
             xx.append(val)  # append symbol to list
 
