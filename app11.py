@@ -179,12 +179,15 @@ def comparison():
         #Volume code
         volume = download_data(symb_list, start_date, end_date)['Volume']
 
+
+        #https://github.com/iiSeymour/sparkline-nb/blob/master/sparkline-nb.ipynb
+        #sparklines
         dfstack= closingPrice.stack()
         dfstack = dfstack.to_frame()
         dfstock = dfstack.head()
         #dfstack= dfstack.reset_index(level=0, inplace=True)
         st.write(dfstack.head(3))
-        #dfstack.columns =['Code']
+        dfstack.columns =['Code']
         rates = dfstack.groupby(dfstack.index).aggregate({dfstack.columns[0]: sparkline})
         HTML(rates.to_html(escape=False))
         
