@@ -194,6 +194,10 @@ def comparison():
              "stars": st.column_config.NumberColumn("Github Stars", help="Number of stars on GitHub", format="%d ⭐",),
             "views_history": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
  
+        
+        
+        
+        ### Revised
         aa = pd.DataFrame({
            "Stock": symb_list,
            "chart": [[random.randint(0, 5000) for _ in range(30)] for _ in range(2)]})
@@ -204,7 +208,7 @@ def comparison():
         st.dataframe(aa,
             column_config={
             "Stock": "Stock",
-            "chart": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
+            "chart": st.column_config.LineChartColumn("Chart", y_min=0, y_max=5000),}, hide_index=True,)
         
        
 
