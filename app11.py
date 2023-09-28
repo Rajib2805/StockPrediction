@@ -196,12 +196,13 @@ def comparison():
  
         
         
+        col_vals=df['Adj Close'].values.tolist()
         
         ### Revised
         aa = pd.DataFrame({
            "Stock": symb_list,
            #"chart": [[random.randint(0, 5000) for _ in range(30)] for _ in range(2)]})
-           "chart": [[df['Adj Close'].values.tolist()] for _ in range(2)]})
+           "chart": [[col_vals] for _ in range(2)]})
         
         st.write(aa)
 
