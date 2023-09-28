@@ -185,7 +185,6 @@ def comparison():
             "stars": [random.randint(0, 1000) for _ in range(3)],
             "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],})
         
-        st.write(dfff)
         #Calling the data which is set above 
         st.dataframe(dfff,
             column_config={
@@ -195,18 +194,13 @@ def comparison():
             "views_history": st.column_config.LineChartColumn("Views (past 30 days)", y_min=0, y_max=5000),}, hide_index=True,)
  
 
-        st.write(df.columns)
-        
-        for col in df.columns:
-             st.write(col)
+        sss = pd.DataFrame({
+           "name": symb_list,
+           "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
+            "stars": [random.randint(0, 1000) for _ in range(3)],
+            "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],})
 
-        
-
-        for index, row in df.iterrows():
-            print(row['age'])
-        
-
-        
+        st.write(sss)
         
         
        
