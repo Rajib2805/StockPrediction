@@ -184,7 +184,7 @@ def comparison():
            "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
             "stars": [random.randint(0, 1000) for _ in range(3)],
             "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],})
-    st.write(name)
+        st.write(name)
         
         #Calling the data which is set above 
         st.dataframe(dfff,
