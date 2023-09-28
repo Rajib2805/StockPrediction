@@ -202,7 +202,7 @@ def comparison():
         aa = pd.DataFrame({
            "Stock": symb_list,
            #"chart": [[random.randint(0, 5000) for _ in range(30)] for _ in range(2)]})
-           "chart": [ df['Adj Close'].values.tolist() for _ in range(2)]})
+           "chart": [ df.symb_list.values.tolist() for _ in range(2)]})
             
         st.write(aa)
 
