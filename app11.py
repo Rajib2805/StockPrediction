@@ -30,6 +30,19 @@ from io import BytesIO
 from IPython.display import display, HTML
 import base64
 
+
+st.set_page_config(
+    page_title="Ex-stream-ly Cool App",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    })
+
+
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
 # THE MAIN MENU ARE LINKED TO 
@@ -51,16 +64,7 @@ st.sidebar.write(":heavy_minus_sign:" * 9) # horizontal separator line. Just cha
 
 st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below', icon = "🔥")
 st.sidebar.info("Created and designed by Rajib Kumar Tah", icon="🤖")
-st.set_page_config(
-    page_title="Ex-stream-ly Cool App",
-    page_icon="🧊",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
-    })
+
 
 
 
