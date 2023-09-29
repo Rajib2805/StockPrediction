@@ -71,9 +71,7 @@ st.title('Stock Market Dashboard')
 img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 img = img.resize((400,300))
 with st.expander("See explanation"):
-    st.write("The chart above shows some numbers I picked for you.
-        I rolled actual dice for these, so they're *guaranteed* to
-        be random.")
+    st.write('Hello, *World!* :sunglasses:')
     st.sidebar.image(img)
 #st.sidebar.image(img)
 st.sidebar.divider()
