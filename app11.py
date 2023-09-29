@@ -44,7 +44,7 @@ st.set_page_config(
         'About': "# Here comes this *extremely* cool stock market app!"}) # Mention the url this option should point to
 
 
-with st.sidebar: 
+with st.sidebar:
     selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"])
 
     if(selected == 'FirstMenu'):
