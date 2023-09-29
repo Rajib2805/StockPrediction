@@ -45,7 +45,7 @@ st.set_page_config(
 
 
 with st.sidebar: 
-        selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"])
+    selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"])
 
     if(selected == 'FirstMenu'):
         tab1, tab2, tab3 = st.tabs(["Cat", "Dog"])
