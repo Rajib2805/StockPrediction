@@ -185,7 +185,7 @@ def comparison():
         dfstack= closingPrice.stack()
         #dfstack = dfstack.to_frame()
         dfstack.index.set_names('Stock', level=len(dfstack.index.names)-1, inplace=True)
-        dfstack=dfstack.reset_index().rename(columns={0:'value'})
+        dfstack = dfstack.reset_index().rename(columns={0:'Value'})
 
         
         #dfstack= dfstack.reset_index(inplace=True)
