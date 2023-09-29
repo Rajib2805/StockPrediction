@@ -48,7 +48,7 @@ with st.sidebar:
     selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"])
 
     if(selected == 'FirstMenu'):
-        tab1, tab2 = st.tabs(["Cat", "Dog"])
+        tab1, tab2 = st.tabs(["📈 Chart", "🗃 Data"])
         with tab1:
            st.header("A cat")
            st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
