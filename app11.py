@@ -179,27 +179,14 @@ def comparison():
         #Volume code
         volume = download_data(symb_list, start_date, end_date)['Volume']
 
-
-        #https://github.com/iiSeymour/sparkline-nb/blob/master/sparkline-nb.ipynb
-        #sparklines
+        #sparklines #https://github.com/iiSeymour/sparkline-nb/blob/master/sparkline-nb.ipynb
         dfstack= closingPrice.stack()
         #dfstack = dfstack.to_frame()
         dfstack.index.set_names('Stock', level=len(dfstack.index.names)-1, inplace=True)
         dfstack = dfstack.reset_index().rename(columns={0:'Value'})
-
-        
-        #dfstack= dfstack.reset_index(inplace=True)
-        st.write(dfstack)
-        
         rates = dfstack.groupby(['Stock']).aggregate({'Value': sparkline})
-        #st.write(rates)
         st.write(HTML(rates.to_html(escape=False)))
         
-        
- 
-        
-       
-
         #Dropdown for selecting type of chart within the above list of stocks selcted for comparison
         st.subheader('Raw Data {}'.format(dropdown))
         chart = ('Line Chart', 'Area Chart', 'Bar Chart')  # chart types
