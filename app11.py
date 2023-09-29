@@ -47,18 +47,18 @@ st.set_page_config(
 with st.sidebar: 
         selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"])
 
-if(selected == 'FirstMenu'):
-    tab1, tab2, tab3 = st.tabs(["Cat", "Dog"])
-    with tab1:
-       st.header("A cat")
-       st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
-    with tab2:
-       st.header("A dog")
-       st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
-elif(selected == 'SecondMenu'):
-    st.subheader("Second Menu Job")
-elif(selected == 'ThirdMenu'):
-    st.subheader("Third Menu job")
+    if(selected == 'FirstMenu'):
+        tab1, tab2, tab3 = st.tabs(["Cat", "Dog"])
+        with tab1:
+           st.header("A cat")
+           st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
+        with tab2:
+           st.header("A dog")
+           st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
+    elif(selected == 'SecondMenu'):
+        st.subheader("Second Menu Job")
+    elif(selected == 'ThirdMenu'):
+        st.subheader("Third Menu job")
     
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
