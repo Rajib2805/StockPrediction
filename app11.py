@@ -74,6 +74,7 @@ with st.expander("See explanation"):
     st.write('Hello, *World!* :sunglasses:')
     st.sidebar.image(img)
 #st.sidebar.image(img)
+
 st.sidebar.divider()
 
 #Lottie file for streamlit animation
