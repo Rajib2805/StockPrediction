@@ -47,7 +47,7 @@ with st.sidebar:
         selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"])
 
 if(selected == 'FirstMenu'):
-    st.subheader("First Menu text")
+    st.subheader("First Menu job")
 elif(selected == 'SecondMenu'):
     st.subheader("Second Menu Job")
 elif(selected == 'ThirdMenu'):
