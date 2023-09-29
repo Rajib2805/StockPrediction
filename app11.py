@@ -43,7 +43,16 @@ st.set_page_config(
         'About': "# Here comes this *extremely* cool stock market app!"}) # Mention the url this option should point to
 
 
+with st.sidebar: 
+        selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"])
 
+if(selected == 'FirstMenu'):
+    st.subheader("First Menu text")
+elif(selected == 'SecondMenu'):
+    st.subheader("Second Menu Job")
+elif(selected == 'ThirdMenu'):
+    st.subheader("Third Menu job")
+    
 ############################################################################################
 # SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
 # THE MAIN MENU ARE LINKED TO 
