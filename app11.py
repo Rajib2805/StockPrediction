@@ -183,7 +183,11 @@ def comparison():
         #https://github.com/iiSeymour/sparkline-nb/blob/master/sparkline-nb.ipynb
         #sparklines
         dfstack= closingPrice.stack()
-        dfstack = dfstack.to_frame()
+        #dfstack = dfstack.to_frame()
+        dfstack.index.set_names('var_name', level=len(stacked.index.names)-1, inplace=True)
+        stacked.reset_index().rename(columns={0:'value'})
+
+        
         #dfstack= dfstack.reset_index(inplace=True)
         st.write(dfstack)
         
