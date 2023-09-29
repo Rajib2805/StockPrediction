@@ -39,8 +39,8 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     menu_items={
         'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool stock market app!"})
+        'Report a bug': "https://www.extremelycoolapp.com/bug", # Mention the url this option should point to
+        'About': "# Here comes this *extremely* cool stock market app!"}) # Mention the url this option should point to
 
 
 
