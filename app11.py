@@ -72,6 +72,7 @@ img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 img = img.resize((400,300))
 with st.expander("See explanation"):
     st.sidebar.write('Hello, *World!* :sunglasses:')
+    img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
     st.sidebar.image(img)
 #st.sidebar.image(img)
 
