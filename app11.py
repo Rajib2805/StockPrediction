@@ -184,7 +184,7 @@ def comparison():
         #sparklines
         dfstack= closingPrice.stack()
         #dfstack = dfstack.to_frame()
-        dfstack.index.set_names('var_name', level=len(dfstack.index.names)-1, inplace=True)
+        dfstack.index.set_names('Stock', level=len(dfstack.index.names)-1, inplace=True)
         dfstack.reset_index().rename(columns={0:'value'})
 
         
