@@ -29,6 +29,7 @@ from sklearn.preprocessing import MinMaxScaler
 from io import BytesIO
 from IPython.display import display, HTML
 import base64
+from streamlit_option_menu import option_menu
 
 #Page configuration settings. Note the icon on the left top corner and the menus on the dot dot dot on the right top corner
 #This settings are to be put before writing any other code in the page just after the library imports are complete
