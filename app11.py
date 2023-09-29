@@ -71,7 +71,7 @@ st.title('Stock Market Dashboard')
 img = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 img = img.resize((400,300))
 with st.expander("See explanation"):
-    st.write('Hello, *World!* :sunglasses:')
+    st.sidebar.write('Hello, *World!* :sunglasses:')
     st.sidebar.image(img)
 #st.sidebar.image(img)
 
