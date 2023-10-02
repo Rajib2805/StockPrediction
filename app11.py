@@ -55,7 +55,7 @@ with st.sidebar:
            st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
         with tab2:
            st.header("A dog")
-           img = Image.open("https://static.streamlit.io/examples/cat.jpg") 
+           img = st.image("https://static.streamlit.io/examples/cat.jpg") 
           
            #transposing image 
            transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
