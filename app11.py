@@ -109,6 +109,7 @@ res = card(
 
 col1, col2 = st.columns(2)
 original = Image.open("pexels-leeloo-thefirst-7247399.jpg")
+original = original.rotate(180)
 col1.header("Original")
 col1.image(original, use_column_width=True)
 
