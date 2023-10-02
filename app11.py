@@ -114,24 +114,24 @@ res = card(
             "font-family": "serif",}})
 
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 original = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 col1.header("Original")
 col1.image(original, use_column_width=True)
 
+transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
+col2.image(transposed_img, use_column_width=True)
+
 original = original
 width, height = original.size
-          
 area = (0, 0, width/2, height/2)
 original = original.crop(area)
-          
 #Saved in the same relative location
 original.save("cropped_picture.jpg") 
-
 grayscale = original.convert('LA')
 #grayscale = grayscale.rotate(60) #this is required if we want to rotate the picture
-col2.header("Grayscale")
-col2.image(grayscale, use_column_width=True)
+col3.header("Grayscale")
+col3.image(grayscale, use_column_width=True)
 
 
 
