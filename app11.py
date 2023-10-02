@@ -160,7 +160,7 @@ from itertools import cycle
 filteredImages = ["https://static.streamlit.io/examples/cat.jpg" "https://static.streamlit.io/examples/cat.jpg",
 "https://static.streamlit.io/examples/cat.jpg", "https://static.streamlit.io/examples/cat.jpg",
 "https://static.streamlit.io/examples/cat.jpg", "https://static.streamlit.io/examples/cat.jpg"] # your images here
-caption = [] # your caption here
+caption = ['a','a','a','a','a','a'] # your caption here
 cols = cycle(st.columns(4)) # st.columns here since it is out of beta at the time I'm writing this
 for idx, filteredImage in enumerate(filteredImages):
     next(cols).image(filteredImage, width=150, caption=caption[idx])
