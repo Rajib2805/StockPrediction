@@ -114,11 +114,12 @@ res = card(
             "font-family": "serif",}})
 
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns(3,1,1)
 original = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 col1.header("Original")
 col1.image(original, use_column_width=True)
 
+col2.header("Transposed Image")
 transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
 col2.image(transposed_img, use_column_width=True)
 
