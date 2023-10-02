@@ -30,6 +30,7 @@ from io import BytesIO
 from IPython.display import display, HTML
 import base64
 from streamlit_option_menu import option_menu
+from streamlit_card import card
 
 #Page configuration settings. Note the icon on the left top corner and the menus on the dot dot dot on the right top corner
 #This settings are to be put before writing any other code in the page just after the library imports are complete
@@ -61,8 +62,6 @@ with st.sidebar:
         st.subheader("Third Menu job")
     
 ############################################################################################
-# SIDEBAR TITLE and MENU (menu no.-1) (automatic run becaus eit is in the main function)
-# THE MAIN MENU ARE LINKED TO 
 
 st.title('Stock Market Dashboard')
 
@@ -76,6 +75,15 @@ with st.expander("See explanation"):
 st.sidebar.image(img)
 
 st.sidebar.divider()
+
+#card form
+hasClicked = card(
+  title="Hello World!",
+  text="Some description",
+  image="http://placekitten.com/200/300",
+  url="https://github.com/gamcoh/st-card"
+)
+
 
 #Lottie file for streamlit animation
 with st.sidebar:
