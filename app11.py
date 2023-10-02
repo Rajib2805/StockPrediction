@@ -84,6 +84,14 @@ hasClicked = card(
   url="https://github.com/gamcoh/st-card"
 )
 
+hasClicked = card(
+  title="Hello World!",
+  text="Some description",
+  image="http://placekitten.com/200/300",
+)
+
+if hasClicked:
+    st.write('Please do this job')
 
 #Lottie file for streamlit animation
 with st.sidebar:
