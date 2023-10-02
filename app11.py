@@ -119,7 +119,7 @@ original = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 col1.header("Original")
 col1.image(original, use_column_width=True)
 
-col2.header("Transposed Image")
+col2.header("Trans")
 transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
 col2.image(transposed_img, use_column_width=True)
 
