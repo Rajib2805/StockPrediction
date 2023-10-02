@@ -106,6 +106,17 @@ res = card(
         "text": {
             "font-family": "serif",}})
 
+
+col1, col2 = st.columns(2)
+
+original = Image.open(image)
+col1.header("Original")
+col1.image(original, use_column_width=True)
+
+grayscale = original.convert('LA')
+col2.header("Grayscale")
+col2.image(grayscale, use_column_width=True)
+
 #Lottie file for streamlit animation
 with st.sidebar:
     st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
