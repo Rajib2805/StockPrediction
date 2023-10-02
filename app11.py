@@ -89,8 +89,7 @@ hasClicked = card(
   title="Hello World!",
   text="Some description",
   image="http://placekitten.com/20/30",
-  on_click=lambda: print("Do ths job!")
-)
+  on_click=lambda: print("Do ths job!"))
 
 from streamlit_card import card
 
