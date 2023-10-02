@@ -147,7 +147,7 @@ for i in range(1, 10):
 st.title("Let's create a table!")
 for i in range(1, 10):
     cols = st.columns(4)
-    cols[0].write(pexels-leeloo-thefirst-7247399.jpg)
+    cols[0].write('ABC')
     cols[1].write(f'{i * i}')
     cols[2].write(f'{i * i * i}')
     cols[3].write('x' * i)
