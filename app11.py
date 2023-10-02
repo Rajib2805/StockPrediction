@@ -92,7 +92,26 @@ hasClicked = card(
   on_click=lambda: print("Do ths job!")
 )
 
+from streamlit_card import card
 
+res = card(
+    title="Streamlit Card",
+    text="This is a test card",
+    image="https://placekitten.com/500/500",
+    styles={
+        "card": {
+            "width": "500px",
+            "height": "500px",
+            "border-radius": "60px",
+            "box-shadow": "0 0 10px rgba(0,0,0,0.5)",
+            ...
+        },
+        "text": {
+            "font-family": "serif",
+            ...
+        }
+    }
+)
 
 #Lottie file for streamlit animation
 with st.sidebar:
