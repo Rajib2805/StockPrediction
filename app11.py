@@ -31,6 +31,7 @@ from IPython.display import display, HTML
 import base64
 from streamlit_option_menu import option_menu
 from streamlit_card import card
+from streamlit_login_auth_ui.widgets import __login__
 
 #Page configuration settings. Note the icon on the left top corner and the menus on the dot dot dot on the right top corner
 #This settings are to be put before writing any other code in the page just after the library imports are complete
@@ -615,6 +616,19 @@ def contact_us():
     st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
 
 
+    
+    __login__obj = __login__(auth_token = "courier_auth_token", 
+                    company_name = "Shims",
+                    width = 200, height = 250, 
+                    logout_button_name = 'Logout', hide_menu_bool = False, 
+                    hide_footer_bool = False, 
+                    lottie_url = 'https://assets2.lottiefiles.com/packages/lf20_jcikwtux.json')
+
+    LOGGED_IN = __login__obj.build_login_ui()
+
+    if LOGGED_IN == True:
+
+        st.markown("Your Streamlit Application Begins here!")
 
 if __name__ == '__main__':
     main()
