@@ -108,16 +108,17 @@ res = card(
 
 
 col1, col2 = st.columns(2)
-
-img = Image.open("pexels-leeloo-thefirst-7247399.jpg") 
-#image = img.rotate(180)
-original = Image.open(img)
+original = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 col1.header("Original")
 col1.image(original, use_column_width=True)
 
 grayscale = original.convert('LA')
 col2.header("Grayscale")
 col2.image(grayscale, use_column_width=True)
+
+
+
+
 
 #Lottie file for streamlit animation
 with st.sidebar:
