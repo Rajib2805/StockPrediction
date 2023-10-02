@@ -59,6 +59,7 @@ with st.sidebar:
           
            #transposing image 
            transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
+           transposed_img.save("transposed.jpg")
           
            st.image(transposed_img, width=200)
             
