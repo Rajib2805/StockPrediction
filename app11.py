@@ -157,9 +157,9 @@ for i in range(1, 10):
 
 from itertools import cycle
 
-filteredImages = ["https://static.streamlit.io/examples/cat.jpg", width=200, "https://static.streamlit.io/examples/cat.jpg", width=200,
-"https://static.streamlit.io/examples/cat.jpg", width=200, "https://static.streamlit.io/examples/cat.jpg", width=200,
-"https://static.streamlit.io/examples/cat.jpg", width=200, "https://static.streamlit.io/examples/cat.jpg", width=200] # your images here
+filteredImages = ["https://static.streamlit.io/examples/cat.jpg" "https://static.streamlit.io/examples/cat.jpg",
+"https://static.streamlit.io/examples/cat.jpg", "https://static.streamlit.io/examples/cat.jpg",
+"https://static.streamlit.io/examples/cat.jpg", "https://static.streamlit.io/examples/cat.jpg"] # your images here
 caption = [] # your caption here
 cols = cycle(st.columns(4)) # st.columns here since it is out of beta at the time I'm writing this
 for idx, filteredImage in enumerate(filteredImages):
