@@ -109,7 +109,7 @@ res = card(
 
 col1, col2 = st.columns(2)
 
-img = "https://placekitten.com/500/500"
+img = Image.open("pexels-leeloo-thefirst-7247399.jpg") 
 image = img.rotate(180)
 original = Image.open(image)
 col1.header("Original")
