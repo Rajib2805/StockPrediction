@@ -114,7 +114,7 @@ res = card(
             "font-family": "serif",}})
 
 
-col1, col2, col3 = st.columns(3,1,1)
+col1, col2, col3 = st.columns((3,1,1))
 original = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 col1.header("Original")
 col1.image(original, use_column_width=True)
