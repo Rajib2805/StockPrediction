@@ -122,7 +122,7 @@ original = original.crop(area)
 original.save("cropped_picture.jpg") 
 
 grayscale = original.convert('LA')
-grayscale = grayscale.rotate(60)
+#grayscale = grayscale.rotate(60) #this is required if we want to rotate the picture
 col2.header("Grayscale")
 col2.image(grayscale, use_column_width=True)
 
