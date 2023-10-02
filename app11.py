@@ -76,14 +76,15 @@ st.sidebar.image(img)
 
 st.sidebar.divider()
 
-#card form
+#card form, This crad will point to a website
 hasClicked = card(
   title="Hello World!",
   text="Some description",
   image="http://placekitten.com/200/300",
-  url="https://github.com/gamcoh/st-card"
+  url="https://sail.co.in"
 )
 
+#This card if clicked will do something
 hasClicked = card(
   title="Hello World!",
   text="Some description",
