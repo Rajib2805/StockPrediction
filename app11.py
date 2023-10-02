@@ -56,8 +56,8 @@ with st.sidebar:
         with tab2:
            st.header("A dog")
            img = Image.open("pexels-leeloo-thefirst-7247399.jpg") 
-            #transposing image 
-            transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
+           #transposing image 
+           transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
           
            
           
