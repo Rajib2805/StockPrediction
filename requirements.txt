@@ -20,3 +20,5 @@ keras
 IPython
 streamlit-card
 streamlit-login-auth-ui
+argon2-cffi
+argon2-cffi-bindings
