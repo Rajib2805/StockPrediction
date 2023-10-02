@@ -143,7 +143,14 @@ for i in range(1, 10):
     cols[2].write(f'{i * i * i}')
     cols[3].write('x' * i)
 
-
+#To get a grid layout with st.container
+st.title("Let's create a table!")
+for i in range(1, 10):
+    cols = st.columns(4)
+    cols[0].write('pexels-leeloo-thefirst-7247399.jpg')
+    cols[1].write(f'{i * i}')
+    cols[2].write(f'{i * i * i}')
+    cols[3].write('x' * i)
 
 #Lottie file for streamlit animation
 with st.sidebar:
