@@ -152,6 +152,19 @@ for i in range(1, 10):
     cols[2].write(f'{i * i * i}')
     cols[3].write('x' * i)
 
+
+
+
+from itertools import cycle
+
+filteredImages = ["https://static.streamlit.io/examples/cat.jpg", width=200, "https://static.streamlit.io/examples/cat.jpg", width=200,
+"https://static.streamlit.io/examples/cat.jpg", width=200, "https://static.streamlit.io/examples/cat.jpg", width=200,
+"https://static.streamlit.io/examples/cat.jpg", width=200, "https://static.streamlit.io/examples/cat.jpg", width=200] # your images here
+caption = [] # your caption here
+cols = cycle(st.columns(4)) # st.columns here since it is out of beta at the time I'm writing this
+for idx, filteredImage in enumerate(filteredImages):
+    next(cols).image(filteredImage, width=150, caption=caption[idx])
+
 #Lottie file for streamlit animation
 with st.sidebar:
     st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json")
