@@ -114,7 +114,6 @@ res = card(
             "font-family": "serif",}})
 
 
-st.set_page_config(layout="wide")
 col1, col2, col3 = st.columns((2,1,1))
 original = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 col1.header("Original")
@@ -135,7 +134,14 @@ grayscale = original.convert('LA')
 col3.header("Grayscale")
 col3.image(grayscale, use_column_width=True)
 
-
+#To get a grid layout with st.container
+st.title("Let's create a table!")
+for i in range(1, 10):
+    cols = st.columns(4)
+    cols[0].write(f'{i}')
+    cols[1].write(f'{i * i}')
+    cols[2].write(f'{i * i * i}')
+    cols[3].write('x' * i)
 
 
 
