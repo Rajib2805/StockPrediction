@@ -89,10 +89,10 @@ hasClicked = card(
   title="Hello World!",
   text="Some description",
   image="http://placekitten.com/20/30",
+  on_click=lambda: print("Do ths job!")
 )
 
-if hasClicked:
-    st.write('Hello, *World!* :sunglasses:')
+
 
 #Lottie file for streamlit animation
 with st.sidebar:
