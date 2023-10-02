@@ -18,3 +18,4 @@ pylottie
 tensorflow
 keras
 IPython
+streamlit-card
