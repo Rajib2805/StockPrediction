@@ -55,12 +55,13 @@ with st.sidebar:
            st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
         with tab2:
            st.header("A dog")
-           img=st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
+           img = Image.open("https://static.streamlit.io/examples/cat.jpg") 
+          
+           #transposing image 
            transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
           
-           #Save transposed image
-           trans_img= transposed_img.save("transposed.jpg")
-           st.image(trans_img, width=200)
+           st.image(transposed_img, width=200)
+            
     elif(selected == 'SecondMenu'):
         st.subheader("Second Menu Job")
     elif(selected == 'ThirdMenu'):
