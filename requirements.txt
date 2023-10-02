@@ -19,3 +19,4 @@ tensorflow
 keras
 IPython
 streamlit-card
+streamlit_login_auth_ui.widgets
