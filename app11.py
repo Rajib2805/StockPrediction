@@ -109,11 +109,11 @@ res = card(
 
 col1, col2 = st.columns(2)
 original = Image.open("pexels-leeloo-thefirst-7247399.jpg")
-original = original.rotate(60)
 col1.header("Original")
 col1.image(original, use_column_width=True)
 
 grayscale = original.convert('LA')
+grayscale = grayscale.rotate(60)
 col2.header("Grayscale")
 col2.image(grayscale, use_column_width=True)
 
