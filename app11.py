@@ -114,6 +114,7 @@ res = card(
             "font-family": "serif",}})
 
 
+st.set_page_config(layout="wide")
 col1, col2, col3 = st.columns((2,1,1))
 original = Image.open("pexels-leeloo-thefirst-7247399.jpg")
 col1.header("Original")
