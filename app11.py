@@ -85,7 +85,7 @@ hasClicked = card(
 )
 
 #This card if clicked will do something
-hasClicked = card(
+cccchasClicked = card(
   title="Hello World!",
   text="Some description",
   image="http://placekitten.com/20/30",
