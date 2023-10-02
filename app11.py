@@ -92,7 +92,7 @@ hasClicked = card(
 )
 
 if hasClicked:
-    st.write('Please do this job')
+    st.write('Hello, *World!* :sunglasses:')
 
 #Lottie file for streamlit animation
 with st.sidebar:
