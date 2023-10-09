@@ -47,7 +47,7 @@ st.set_page_config(
 
 
 with st.sidebar:
-    selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"])
+    selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"], orientation= 'horizontal')
 
     if(selected == 'FirstMenu'):
         tab1, tab2 = st.tabs(["📈 Chart", "🗃 Data"])
