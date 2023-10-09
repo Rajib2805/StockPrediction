@@ -70,12 +70,12 @@ elif(selected == 'ThirdMenu'):
     st.subheader("Third Menu job")
 
 
-
+#########################################
 
 with st.sidebar:
-    selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"], orientation= 'horizontal',)
+    selected = option_menu("Utilities", ["Firstaa", "Secondaa", "Thirdaa"], orientation= 'horizontal',)
 
-    if(selected == 'FirstMenu'):
+    if(selected == 'Firstaa'):
         tab1, tab2 = st.tabs(["📈 Chart", "🗃 Data"])
         with tab1:
            st.header("A cat")
@@ -90,9 +90,9 @@ with st.sidebar:
           
            st.image(transposed_img, width=200)
             
-    elif(selected == 'SecondMenu'):
+    elif(selected == 'Secondaa'):
         st.subheader("Second Menu Job")
-    elif(selected == 'ThirdMenu'):
+    elif(selected == 'Thirdaa'):
         st.subheader("Third Menu job")
     
 
