@@ -46,28 +46,28 @@ st.set_page_config(
         'About': "# Here comes this *extremely* cool stock market app!"}) # Mention the url this option should point to
 
 
-with st.sidebar:
-    selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"], orientation= 'horizontal',)
+#with st.sidebar:
+selected = option_menu("Utilities", ["FirstMenu", "SecondMenu", "ThirdMenu"], orientation= 'horizontal',)
 
-    if(selected == 'FirstMenu'):
-        tab1, tab2 = st.tabs(["📈 Chart", "🗃 Data"])
-        with tab1:
-           st.header("A cat")
-           st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
-        with tab2:
-           st.header("A dog")
-           img = Image.open("pexels-leeloo-thefirst-7247399.jpg") 
-           #transposing image 
-           transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
+if(selected == 'FirstMenu'):
+    tab1, tab2 = st.tabs(["📈 Chart", "🗃 Data"])
+    with tab1:
+       st.header("A cat")
+       st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
+    with tab2:
+       st.header("A dog")
+       img = Image.open("pexels-leeloo-thefirst-7247399.jpg") 
+       #transposing image 
+       transposed_img = img.transpose(Image.FLIP_LEFT_RIGHT)
           
            
           
-           st.image(transposed_img, width=200)
+       st.image(transposed_img, width=200)
             
-    elif(selected == 'SecondMenu'):
-        st.subheader("Second Menu Job")
-    elif(selected == 'ThirdMenu'):
-        st.subheader("Third Menu job")
+elif(selected == 'SecondMenu'):
+    st.subheader("Second Menu Job")
+elif(selected == 'ThirdMenu'):
+    st.subheader("Third Menu job")
     
 ############################################################################################
 
