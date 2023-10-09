@@ -71,6 +71,20 @@ with st.sidebar:
     
 ############################################################################################
 
+#Centred Image
+col1, col2, col3 = st.columns(3)
+with col1:
+    image1 = Image.open('bslgate.jpg')
+    st.image(image1, caption='', use_column_width=True)
+with col2:
+    image2 = Image.open('logo545.png')
+    #image2 = image2.resize((150, 150))
+    st.image(image2, caption='50 Glorious years')
+with col3:
+    image3 = Image.open('bsl.jpg')
+    st.image(image3, caption='', use_column_width=True)
+
+
 st.title('Stock Market Dashboard')
 
 
