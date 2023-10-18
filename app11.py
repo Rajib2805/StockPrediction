@@ -657,6 +657,32 @@ def contact_us():
     st.contact_form = st.markdown(contact_form, unsafe_allow_html= True) 
 
 
+    forecast1 = 500    
+    forecast2 = 600    
+    forecast3 = 700    
+
+    st.divider()
+
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Hot Metal cost per ton", int(forecast1))
+    col2.metric("Crude Steel cost per ton", int(forecast2))
+    col3.metric("Saleable Steel cost per ton", int(forecast3))
+
+    
+    x= int(forecast1/forecast3*100)
+    y= int(forecast2/forecast3*100)
+    z= int(forecast3/forecast3*100)
+    fig = make_subplots(rows=1, cols=3, specs=[[{"type": "pie"}, {"type": "pie"}, {"type": "pie"}]])
+    fig.add_trace(go.Pie(showlegend=False, labels=['',''], values=[x,100-x], hole=0.85, textinfo='none', marker_colors=['rgb(113,209,145)','rgb(240,240,240)'],),row=1, col=1)
+    fig.add_trace(go.Pie(showlegend=False, labels=['',''], values=[y,100-y], hole=0.85, textinfo='none', marker_colors=['rgb(113,209,145)','rgb(240,240,240)'], ),row=1, col=2)
+    fig.add_trace(go.Pie(showlegend=False, labels=['',''], values=[z,100-z], hole=0.85, textinfo='none', marker_colors=['rgb(113,209,145)','rgb(240,240,240)'], ),row=1, col=3)
+    fig.update_layout(annotations=[dict(text=str(int(forecast1))+"", x=0.1, y=0.5, font_size=20, showarrow=False),
+                                   dict(text=str(int(forecast2))+"", x=0.5, y=0.5, font_size=20, showarrow=False),
+                                   dict(text=str(int(forecast3))+"", x=0.9, y=0.5, font_size=20, showarrow=False),])
+    st.plotly_chart(fig)
+
+
+
     
     __login__obj = __login__(auth_token = "courier_auth_token", 
                     company_name = "Shims",
